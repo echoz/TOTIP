@@ -1,3 +1,6 @@
 [submodule "Vendor/AFNetworking"]
 	path = Vendor/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "Vendor/Ono"]
+	path = Vendor/Ono
+	url = https://github.com/mattt/Ono.git
