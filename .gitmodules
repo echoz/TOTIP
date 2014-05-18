@@ -4,3 +4,6 @@
 [submodule "Vendor/Ono"]
 	path = Vendor/Ono
 	url = https://github.com/mattt/Ono.git
+[submodule "Vendor/AFOnoResponseSerializer"]
+	path = Vendor/AFOnoResponseSerializer
+	url = https://github.com/AFNetworking/AFOnoResponseSerializer.git
