@@ -14,22 +14,7 @@
 		3FA980A61929719000795CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980A51929719000795CB9 /* main.m */; };
 		3FA980AA1929719000795CB9 /* LLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980A91929719000795CB9 /* LLAppDelegate.m */; };
 		3FA980AC1929719000795CB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA980AB1929719000795CB9 /* Images.xcassets */; };
-		3FA980B31929719000795CB9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA980B21929719000795CB9 /* XCTest.framework */; };
-		3FA980B41929719000795CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA980991929719000795CB9 /* Foundation.framework */; };
-		3FA980B51929719000795CB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809D1929719000795CB9 /* UIKit.framework */; };
-		3FA980BD1929719000795CB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FA980BB1929719000795CB9 /* InfoPlist.strings */; };
-		3FA980BF1929719000795CB9 /* TOTIPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980BE1929719000795CB9 /* TOTIPTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3FA980B61929719000795CB9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FA9808E1929719000795CB9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3FA980951929719000795CB9;
-			remoteInfo = TOTIP;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3FA980961929719000795CB9 /* TOTIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOTIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,11 +28,7 @@
 		3FA980A81929719000795CB9 /* LLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLAppDelegate.h; sourceTree = "<group>"; };
 		3FA980A91929719000795CB9 /* LLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLAppDelegate.m; sourceTree = "<group>"; };
 		3FA980AB1929719000795CB9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3FA980B11929719000795CB9 /* TOTIPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOTIPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA980B21929719000795CB9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3FA980BA1929719000795CB9 /* TOTIPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOTIPTests-Info.plist"; sourceTree = "<group>"; };
-		3FA980BC1929719000795CB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3FA980BE1929719000795CB9 /* TOTIPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTIPTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,16 +42,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FA980AE1929719000795CB9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FA980B31929719000795CB9 /* XCTest.framework in Frameworks */,
-				3FA980B51929719000795CB9 /* UIKit.framework in Frameworks */,
-				3FA980B41929719000795CB9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				3FA9809F1929719000795CB9 /* TOTIP */,
-				3FA980B81929719000795CB9 /* TOTIPTests */,
 				3FA980981929719000795CB9 /* Frameworks */,
 				3FA980971929719000795CB9 /* Products */,
 			);
@@ -88,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				3FA980961929719000795CB9 /* TOTIP.app */,
-				3FA980B11929719000795CB9 /* TOTIPTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,24 +95,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3FA980B81929719000795CB9 /* TOTIPTests */ = {
-			isa = PBXGroup;
-			children = (
-				3FA980BE1929719000795CB9 /* TOTIPTests.m */,
-				3FA980B91929719000795CB9 /* Supporting Files */,
-			);
-			path = TOTIPTests;
-			sourceTree = "<group>";
-		};
-		3FA980B91929719000795CB9 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3FA980BA1929719000795CB9 /* TOTIPTests-Info.plist */,
-				3FA980BB1929719000795CB9 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,24 +115,6 @@
 			productReference = 3FA980961929719000795CB9 /* TOTIP.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3FA980B01929719000795CB9 /* TOTIPTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FA980C51929719000795CB9 /* Build configuration list for PBXNativeTarget "TOTIPTests" */;
-			buildPhases = (
-				3FA980AD1929719000795CB9 /* Sources */,
-				3FA980AE1929719000795CB9 /* Frameworks */,
-				3FA980AF1929719000795CB9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3FA980B71929719000795CB9 /* PBXTargetDependency */,
-			);
-			name = TOTIPTests;
-			productName = TOTIPTests;
-			productReference = 3FA980B11929719000795CB9 /* TOTIPTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,11 +124,6 @@
 				CLASSPREFIX = LL;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = LazyLabs;
-				TargetAttributes = {
-					3FA980B01929719000795CB9 = {
-						TestTargetID = 3FA980951929719000795CB9;
-					};
-				};
 			};
 			buildConfigurationList = 3FA980911929719000795CB9 /* Build configuration list for PBXProject "TOTIP" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -210,7 +138,6 @@
 			projectRoot = "";
 			targets = (
 				3FA980951929719000795CB9 /* TOTIP */,
-				3FA980B01929719000795CB9 /* TOTIPTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,14 +149,6 @@
 			files = (
 				3FA980A41929719000795CB9 /* InfoPlist.strings in Resources */,
 				3FA980AC1929719000795CB9 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FA980AF1929719000795CB9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FA980BD1929719000795CB9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,37 +164,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FA980AD1929719000795CB9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FA980BF1929719000795CB9 /* TOTIPTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3FA980B71929719000795CB9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3FA980951929719000795CB9 /* TOTIP */;
-			targetProxy = 3FA980B61929719000795CB9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3FA980A21929719000795CB9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3FA980A31929719000795CB9 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3FA980BB1929719000795CB9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3FA980BC1929719000795CB9 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -379,46 +274,6 @@
 			};
 			name = Release;
 		};
-		3FA980C61929719000795CB9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TOTIP.app/TOTIP";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOTIP/TOTIP-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TOTIPTests/TOTIPTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		3FA980C71929719000795CB9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TOTIP.app/TOTIP";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOTIP/TOTIP-Prefix.pch";
-				INFOPLIST_FILE = "TOTIPTests/TOTIPTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -436,14 +291,6 @@
 			buildConfigurations = (
 				3FA980C31929719000795CB9 /* Debug */,
 				3FA980C41929719000795CB9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		3FA980C51929719000795CB9 /* Build configuration list for PBXNativeTarget "TOTIPTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3FA980C61929719000795CB9 /* Debug */,
-				3FA980C71929719000795CB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
