@@ -34,6 +34,9 @@
 		3FA981011929744F00795CB9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981001929744F00795CB9 /* MobileCoreServices.framework */; };
 		3FA981031929745400795CB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981021929745400795CB9 /* Security.framework */; };
 		3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981041929745900795CB9 /* SystemConfiguration.framework */; };
+		3FA981071929749C00795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
+		3FA9810C192974A600795CB9 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810B192974A600795CB9 /* ONOXMLDocument.m */; };
+		3FA98110192974AD00795CB9 /* AFOnoResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,12 @@
 		3FA981001929744F00795CB9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3FA981021929745400795CB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3FA981041929745900795CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3FA981061929749C00795CB9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3FA98109192974A600795CB9 /* Ono.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ono.h; sourceTree = "<group>"; };
+		3FA9810A192974A600795CB9 /* ONOXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONOXMLDocument.h; sourceTree = "<group>"; };
+		3FA9810B192974A600795CB9 /* ONOXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONOXMLDocument.m; sourceTree = "<group>"; };
+		3FA9810E192974AD00795CB9 /* AFOnoResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOnoResponseSerializer.h; sourceTree = "<group>"; };
+		3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOnoResponseSerializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA981071929749C00795CB9 /* libxml2.dylib in Frameworks */,
 				3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */,
 				3FA981031929745400795CB9 /* Security.framework in Frameworks */,
 				3FA981011929744F00795CB9 /* MobileCoreServices.framework in Frameworks */,
@@ -128,6 +138,7 @@
 		3FA980981929719000795CB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FA981061929749C00795CB9 /* libxml2.dylib */,
 				3FA981041929745900795CB9 /* SystemConfiguration.framework */,
 				3FA981021929745400795CB9 /* Security.framework */,
 				3FA981001929744F00795CB9 /* MobileCoreServices.framework */,
@@ -164,6 +175,8 @@
 		3FA980C8192973D000795CB9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3FA9810D192974AD00795CB9 /* AFOnoResponseSerializer */,
+				3FA98108192974A600795CB9 /* Ono */,
 				3FA980C9192973F100795CB9 /* AFNetworking */,
 				3FA980DD192973F100795CB9 /* UIKit+AFNetworking */,
 			);
@@ -220,6 +233,27 @@
 			);
 			name = "UIKit+AFNetworking";
 			path = "AFNetworking/UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		3FA98108192974A600795CB9 /* Ono */ = {
+			isa = PBXGroup;
+			children = (
+				3FA98109192974A600795CB9 /* Ono.h */,
+				3FA9810A192974A600795CB9 /* ONOXMLDocument.h */,
+				3FA9810B192974A600795CB9 /* ONOXMLDocument.m */,
+			);
+			name = Ono;
+			path = Ono/Ono;
+			sourceTree = "<group>";
+		};
+		3FA9810D192974AD00795CB9 /* AFOnoResponseSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				3FA9810E192974AD00795CB9 /* AFOnoResponseSerializer.h */,
+				3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */,
+			);
+			name = AFOnoResponseSerializer;
+			path = AFOnoResponseSerializer/AFOnoResponseSerializer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +323,7 @@
 				3FA980F5192973F100795CB9 /* AFURLRequestSerialization.m in Sources */,
 				3FA980F4192973F100795CB9 /* AFURLConnectionOperation.m in Sources */,
 				3FA980FA192973F100795CB9 /* UIAlertView+AFNetworking.m in Sources */,
+				3FA9810C192974A600795CB9 /* ONOXMLDocument.m in Sources */,
 				3FA980F3192973F100795CB9 /* AFSecurityPolicy.m in Sources */,
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
@@ -297,6 +332,7 @@
 				3FA980FD192973F100795CB9 /* UIProgressView+AFNetworking.m in Sources */,
 				3FA980F1192973F100795CB9 /* AFHTTPSessionManager.m in Sources */,
 				3FA980F8192973F100795CB9 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				3FA98110192974AD00795CB9 /* AFOnoResponseSerializer.m in Sources */,
 				3FA980F0192973F100795CB9 /* AFHTTPRequestOperationManager.m in Sources */,
 				3FA980FC192973F100795CB9 /* UIImageView+AFNetworking.m in Sources */,
 				3FA980FB192973F100795CB9 /* UIButton+AFNetworking.m in Sources */,
