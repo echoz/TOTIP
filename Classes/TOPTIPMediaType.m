@@ -42,9 +42,9 @@
 }
 
 +(NSDictionary *)mappedProperties {
-    return @{@"store": @"store",
-             @"id": @"identifier",
-             @"translation_key": @"translationKey"};
+    return @{@"store":              @"store",
+             @"id":                 @"identifier",
+             @"translation_key":    @"translationKey"};
 }
 
 #pragma mark - Static

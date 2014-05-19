@@ -38,11 +38,11 @@
 }
 
 +(NSDictionary *)mappedProperties {
-    return @{@"country_code": @"countryCode",
-             @"language": @"language",
-             @"region": @"region",
-             @"flag_icon": @"flagIcon",
-             @"translation_key": @"translationKey"};
+    return @{@"country_code":       @"countryCode",
+             @"language":           @"language",
+             @"region":             @"region",
+             @"flag_icon":          @"flagIcon",
+             @"translation_key":    @"translationKey"};
 }
 
 #pragma mark - Static
