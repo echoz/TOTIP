@@ -38,6 +38,9 @@
 		3FA9810C192974A600795CB9 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810B192974A600795CB9 /* ONOXMLDocument.m */; };
 		3FA98110192974AD00795CB9 /* AFOnoResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */; };
 		3FA981141929756E00795CB9 /* TOTIPQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981131929756E00795CB9 /* TOTIPQueryController.m */; };
+		3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */; };
+		3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */; };
+		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +103,12 @@
 		3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOnoResponseSerializer.m; sourceTree = "<group>"; };
 		3FA981121929756E00795CB9 /* TOTIPQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryController.h; sourceTree = "<group>"; };
 		3FA981131929756E00795CB9 /* TOTIPQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryController.m; sourceTree = "<group>"; };
+		3FA9811B192989F500795CB9 /* TOPTIPJSONMappedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPJSONMappedObject.h; sourceTree = "<group>"; };
+		3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPJSONMappedObject.m; sourceTree = "<group>"; };
+		3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPCountry.h; sourceTree = "<group>"; };
+		3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPCountry.m; sourceTree = "<group>"; };
+		3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPMediaType.h; sourceTree = "<group>"; };
+		3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPMediaType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +274,12 @@
 			children = (
 				3FA981121929756E00795CB9 /* TOTIPQueryController.h */,
 				3FA981131929756E00795CB9 /* TOTIPQueryController.m */,
+				3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */,
+				3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */,
+				3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */,
+				3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */,
+				3FA9811B192989F500795CB9 /* TOPTIPJSONMappedObject.h */,
+				3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -339,6 +354,7 @@
 				3FA9810C192974A600795CB9 /* ONOXMLDocument.m in Sources */,
 				3FA980F3192973F100795CB9 /* AFSecurityPolicy.m in Sources */,
 				3FA981141929756E00795CB9 /* TOTIPQueryController.m in Sources */,
+				3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */,
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
 				3FA980F6192973F100795CB9 /* AFURLResponseSerialization.m in Sources */,
@@ -352,8 +368,10 @@
 				3FA980FB192973F100795CB9 /* UIButton+AFNetworking.m in Sources */,
 				3FA980FE192973F100795CB9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
+				3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */,
 				3FA980F2192973F100795CB9 /* AFNetworkReachabilityManager.m in Sources */,
 				3FA980A61929719000795CB9 /* main.m in Sources */,
+				3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */,
 				3FA980F9192973F100795CB9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
