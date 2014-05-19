@@ -34,13 +34,13 @@
 		3FA981011929744F00795CB9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981001929744F00795CB9 /* MobileCoreServices.framework */; };
 		3FA981031929745400795CB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981021929745400795CB9 /* Security.framework */; };
 		3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981041929745900795CB9 /* SystemConfiguration.framework */; };
-		3FA981071929749C00795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
 		3FA9810C192974A600795CB9 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810B192974A600795CB9 /* ONOXMLDocument.m */; };
 		3FA98110192974AD00795CB9 /* AFOnoResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9810F192974AD00795CB9 /* AFOnoResponseSerializer.m */; };
 		3FA981141929756E00795CB9 /* TOTIPQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981131929756E00795CB9 /* TOTIPQueryController.m */; };
 		3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */; };
 		3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */; };
 		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
+		3FA981261929CB8400795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +109,7 @@
 		3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPCountry.m; sourceTree = "<group>"; };
 		3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPMediaType.h; sourceTree = "<group>"; };
 		3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPMediaType.m; sourceTree = "<group>"; };
+		3FA981241929CB5700795CB9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FA981071929749C00795CB9 /* libxml2.dylib in Frameworks */,
+				3FA981261929CB8400795CB9 /* libxml2.dylib in Frameworks */,
 				3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */,
 				3FA981031929745400795CB9 /* Security.framework in Frameworks */,
 				3FA981011929744F00795CB9 /* MobileCoreServices.framework in Frameworks */,
@@ -151,6 +152,7 @@
 		3FA980981929719000795CB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FA981241929CB5700795CB9 /* libxml2.2.dylib */,
 				3FA981061929749C00795CB9 /* libxml2.dylib */,
 				3FA981041929745900795CB9 /* SystemConfiguration.framework */,
 				3FA981021929745400795CB9 /* Security.framework */,
@@ -467,6 +469,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOTIP/TOTIP-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "TOTIP/TOTIP-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -480,6 +487,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOTIP/TOTIP-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "TOTIP/TOTIP-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
