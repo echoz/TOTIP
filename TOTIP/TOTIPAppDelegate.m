@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "LLAppDelegate.h"
+#import "TOTIPAppDelegate.h"
 #import "TOTIPQueryController.h"
 
 @implementation TOTIPAppDelegate
