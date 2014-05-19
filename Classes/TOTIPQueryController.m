@@ -44,8 +44,8 @@ static NSArray *__mediaTypes = nil;
 static dispatch_queue_t queryExecutionQueue;
 
 +(void)initialize {
-    __countries = LoadJSONFile(JSON_COUNTRIES);
-    __mediaTypes = LoadJSONFile(JSON_MEDIATYPES);
+    __countries = [TOPTIPCountry objectsWithJSONArray:LoadJSONFile(JSON_COUNTRIES)];
+    __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:LoadJSONFile(JSON_MEDIATYPES)];
     queryExecutionQueue = dispatch_queue_create("co.lazylabs.TOTIP.query", NULL);
 }
 
@@ -81,12 +81,12 @@ static void WriteJSONFile(id JSONObject, NSString *path) {
     return __mediaTypes;
 }
 
-+(void)executeQueryWithContextBlock:(void (^)(NSArray *, NSArray *, NSSet *))block {
++(void)executeWithContextBlock:(void (^)(NSArray *, NSArray *, NSSet *))block {
     if (!block) return;
     
     dispatch_async(queryExecutionQueue, ^{
-        if (![[self class] countries])  __countries = LoadJSONFile(JSON_COUNTRIES);
-        if (![[self class] mediaTypes]) __mediaTypes = LoadJSONFile(JSON_MEDIATYPES);
+        if (![[self class] countries])  __countries = [TOPTIPCountry objectsWithJSONArray:LoadJSONFile(JSON_COUNTRIES)];
+        if (![[self class] mediaTypes]) __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:LoadJSONFile(JSON_MEDIATYPES)];
 
         dispatch_group_t networkFetchGroup = dispatch_group_create();
         NSMutableSet *errorSet = [NSMutableSet setWithCapacity:2];
@@ -98,28 +98,31 @@ static void WriteJSONFile(id JSONObject, NSString *path) {
             AFHTTPRequestOperation *countriesRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:URL_COUNTRIES]];
             countriesRequestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
             [countriesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                __countries = responseObject;
-                WriteJSONFile(__countries, [libraryPath stringByAppendingString:JSON_COUNTRIES]);
+                __countries = [TOPTIPCountry objectsWithJSONArray:responseObject];
+                WriteJSONFile(responseObject, [libraryPath stringByAppendingString:JSON_COUNTRIES]);
                 dispatch_group_leave(networkFetchGroup);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [errorSet addObject:error];
                 dispatch_group_leave(networkFetchGroup);
             }];
+            [countriesRequestOperation start];
         }
         
         if ([[self class] mediaTypes]) {
             dispatch_group_enter(networkFetchGroup);
 
-            AFHTTPRequestOperation *countriesRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:URL_MEDIATYPES]];
-            countriesRequestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
-            [countriesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                __mediaTypes = responseObject;
-                WriteJSONFile(__mediaTypes, [libraryPath stringByAppendingString:JSON_MEDIATYPES]);
+            AFHTTPRequestOperation *mediaTypesRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:URL_MEDIATYPES]];
+            mediaTypesRequestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+            [mediaTypesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:responseObject];
+                WriteJSONFile(responseObject, [libraryPath stringByAppendingString:JSON_MEDIATYPES]);
                 dispatch_group_leave(networkFetchGroup);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [errorSet addObject:error];
                 dispatch_group_leave(networkFetchGroup);
             }];
+            
+            [mediaTypesRequestOperation start];
         }
         
         dispatch_group_wait(networkFetchGroup, DISPATCH_TIME_FOREVER);

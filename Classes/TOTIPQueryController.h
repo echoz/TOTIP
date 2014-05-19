@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TOPTIPCountry.h"
+#import "TOPTIPMediaType.h"
 
 // Common:
 // rss.itunes.apple.com/data/common.json common data structures
@@ -35,6 +37,6 @@
 
 +(NSArray *)countries;
 +(NSArray *)mediaTypes;
-+(void)executeQueryWithContextBlock:(void (^)(NSArray *countries, NSArray *mediaTypes, NSSet *errorSet))block;
++(void)executeWithContextBlock:(void (^)(NSArray *countries, NSArray *mediaTypes, NSSet *errorSet))block;
 
 @end
