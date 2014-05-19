@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TOPTIPCountry.h"
 #import "TOPTIPMediaType.h"
+#import "TOTIPEntry.h"
 
 // Common:
 // rss.itunes.apple.com/data/common.json common data structures
