@@ -50,7 +50,8 @@
 static NSArray *__countries = nil;
 static dispatch_queue_t countriesUpdateQueue;
 
-+(void)initialize {
++(void)load {
+    __countries = [TOPTIPCountry objectsWithJSONArray:LoadJSONFile(JSON_COUNTRIES)];
     countriesUpdateQueue = dispatch_queue_create("co.lazylabs.TOTIP.countries", NULL);
 }
 

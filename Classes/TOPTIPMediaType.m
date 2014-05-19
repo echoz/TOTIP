@@ -52,7 +52,8 @@
 static NSArray *__mediaTypes = nil;
 static dispatch_queue_t mediaTypesUpdateQueue;
 
-+(void)initialize {
++(void)load {
+    __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:LoadJSONFile(JSON_MEDIATYPES)];
     mediaTypesUpdateQueue = dispatch_queue_create("co.lazylabs.TOTIP.media-types", NULL);
 }
 
