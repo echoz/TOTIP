@@ -1,17 +1,17 @@
 //
-//  TOTIPQueryController.m
+//  TOTIPQuery.m
 //  TOTIP
 //
 //  Created by Jeremy Foo on 18/5/14.
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "TOTIPQueryController.h"
+#import "TOTIPQuery.h"
 #import "AFNetworking.h"
 
-NSString *const TOTIPQueryControllerErrorDomain = @"TOTIPQueryControllerErrorDomain";
+NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
 
-@implementation TOTIPQueryController
+@implementation TOTIPQuery
 
 #pragma mark - Object Life Cycle
 
@@ -32,7 +32,7 @@ NSString *const TOTIPQueryControllerErrorDomain = @"TOTIPQueryControllerErrorDom
 -(void)performQueryForFeedType:(NSString *)feed genre:(NSString *)genre limit:(NSUInteger)limit completion:(void (^)(NSArray *results, NSError *error))completion {
     NSMutableString *urlFormat = [[self.type.feedTypesURL objectForKey:feed] mutableCopy];
     if (!urlFormat) {
-        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, [NSError errorWithDomain:TOTIPQueryControllerErrorDomain code:TOTIPQueryControllerFeedTypeMismatch userInfo:nil]); }) : nil;
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, [NSError errorWithDomain:TOTIPQueryErrorDomain code:TOTIPQueryFeedTypeMismatch userInfo:nil]); }) : nil;
         return;
     }
 

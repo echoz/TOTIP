@@ -1,5 +1,5 @@
 //
-//  TOTIPQueryController.h
+//  TOTIPQuery.h
 //  TOTIP
 //
 //  Created by Jeremy Foo on 18/5/14.
@@ -25,14 +25,14 @@
 // store localization in Library/Localization/<language>/
 // store normal default
 
-extern NSString *const TOTIPQueryControllerErrorDomain;
+extern NSString *const TOTIPQueryErrorDomain;
 
-typedef NS_ENUM(NSUInteger, TOTIPQueryControllerErrorStatus) {
-    TOTIPQueryControllerFeedTypeMismatch,
-    TOTIPQueryControllerGenreMismatch
+typedef NS_ENUM(NSUInteger, TOTIPQueryErrorStatus) {
+    TOTIPQueryFeedTypeMismatch,
+    TOTIPQueryGenreMismatch
 };
 
-@interface TOTIPQueryController : NSObject
+@interface TOTIPQuery : NSObject
 
 @property (nonatomic, readonly, copy) NSArray *results;
 

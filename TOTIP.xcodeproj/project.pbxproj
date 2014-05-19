@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3F4114192AB0250028449E /* TOTIPQueryBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */; };
 		3FA9809A1929719000795CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA980991929719000795CB9 /* Foundation.framework */; };
 		3FA9809C1929719000795CB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809B1929719000795CB9 /* CoreGraphics.framework */; };
 		3FA9809E1929719000795CB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809D1929719000795CB9 /* UIKit.framework */; };
@@ -34,7 +35,7 @@
 		3FA981011929744F00795CB9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981001929744F00795CB9 /* MobileCoreServices.framework */; };
 		3FA981031929745400795CB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981021929745400795CB9 /* Security.framework */; };
 		3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981041929745900795CB9 /* SystemConfiguration.framework */; };
-		3FA981141929756E00795CB9 /* TOTIPQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981131929756E00795CB9 /* TOTIPQueryController.m */; };
+		3FA981141929756E00795CB9 /* TOTIPQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981131929756E00795CB9 /* TOTIPQuery.m */; };
 		3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */; };
 		3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */; };
 		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3F4112192AB0250028449E /* TOTIPQueryBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryBuilderViewController.h; sourceTree = "<group>"; };
+		3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryBuilderViewController.m; sourceTree = "<group>"; };
 		3FA980961929719000795CB9 /* TOTIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOTIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA980991929719000795CB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FA9809B1929719000795CB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,8 +98,8 @@
 		3FA981021929745400795CB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3FA981041929745900795CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3FA981061929749C00795CB9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		3FA981121929756E00795CB9 /* TOTIPQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryController.h; sourceTree = "<group>"; };
-		3FA981131929756E00795CB9 /* TOTIPQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryController.m; sourceTree = "<group>"; };
+		3FA981121929756E00795CB9 /* TOTIPQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQuery.h; sourceTree = "<group>"; };
+		3FA981131929756E00795CB9 /* TOTIPQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQuery.m; sourceTree = "<group>"; };
 		3FA9811B192989F500795CB9 /* TOPTIPJSONMappedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPJSONMappedObject.h; sourceTree = "<group>"; };
 		3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPJSONMappedObject.m; sourceTree = "<group>"; };
 		3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPCountry.h; sourceTree = "<group>"; };
@@ -126,9 +129,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3F4111192AB00D0028449E /* Query Builder */ = {
+			isa = PBXGroup;
+			children = (
+				3F3F4112192AB0250028449E /* TOTIPQueryBuilderViewController.h */,
+				3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */,
+			);
+			path = "Query Builder";
+			sourceTree = "<group>";
+		};
 		3FA9808D1929719000795CB9 = {
 			isa = PBXGroup;
 			children = (
+				3F3F4111192AB00D0028449E /* Query Builder */,
 				3FA981111929754D00795CB9 /* Classes */,
 				3FA9809F1929719000795CB9 /* TOTIP */,
 				3FA980C8192973D000795CB9 /* Vendor */,
@@ -247,8 +260,8 @@
 		3FA981111929754D00795CB9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3FA981121929756E00795CB9 /* TOTIPQueryController.h */,
-				3FA981131929756E00795CB9 /* TOTIPQueryController.m */,
+				3FA981121929756E00795CB9 /* TOTIPQuery.h */,
+				3FA981131929756E00795CB9 /* TOTIPQuery.m */,
 				3FA981271929CFE900795CB9 /* TOTIPEntry.h */,
 				3FA981281929CFE900795CB9 /* TOTIPEntry.m */,
 				3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */,
@@ -329,7 +342,7 @@
 				3FA980F4192973F100795CB9 /* AFURLConnectionOperation.m in Sources */,
 				3FA980FA192973F100795CB9 /* UIAlertView+AFNetworking.m in Sources */,
 				3FA980F3192973F100795CB9 /* AFSecurityPolicy.m in Sources */,
-				3FA981141929756E00795CB9 /* TOTIPQueryController.m in Sources */,
+				3FA981141929756E00795CB9 /* TOTIPQuery.m in Sources */,
 				3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */,
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
@@ -345,6 +358,7 @@
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
 				3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */,
 				3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */,
+				3F3F4114192AB0250028449E /* TOTIPQueryBuilderViewController.m in Sources */,
 				3FA980F2192973F100795CB9 /* AFNetworkReachabilityManager.m in Sources */,
 				3FA980A61929719000795CB9 /* main.m in Sources */,
 				3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */,
