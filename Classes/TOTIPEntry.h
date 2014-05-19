@@ -25,6 +25,10 @@
 @property (nonatomic, copy, readonly) NSString *costString;
 @property (nonatomic, assign, readonly) double price;
 
+@property (nonatomic, copy, readonly) NSString *rentalCurrency;
+@property (nonatomic, copy, readonly) NSString *rentalCostString;
+@property (nonatomic, assign, readonly) double rentalPrice;
+
 @property (nonatomic, copy, readonly) NSString *artist;
 @property (nonatomic, copy, readonly) NSURL *artistURL;
 @property (nonatomic, copy, readonly) NSString *publisher;
@@ -32,6 +36,9 @@
 @property (nonatomic, copy, readonly) NSString *copyright;
 
 @property (nonatomic, copy, readonly) NSDate *releaseDate;
+@property (nonatomic, copy, readonly) NSDate *lastUpdated;
+
+@property (nonatomic, copy, readonly) NSString *contentHTML;
 
 @property (nonatomic, strong, readonly) NSDictionary *images;
 
