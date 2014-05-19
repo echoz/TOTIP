@@ -38,6 +38,10 @@ NSString *const TOTIPQueryControllerErrorDomain = @"TOTIPQueryControllerErrorDom
         return;
     }
 
+    NSString *genreParam = ([self.type.genres objectForKey:genre]) ? [NSString stringWithFormat:@"genre=%@", [self.type.genres objectForKey:genre]] : @"";
+    NSString *limitParam = [NSString stringWithFormat:@"limit=%@", @((limit > 0)?:1)];
+    NSString *explictParam = (self.explicitContent) ? @"explicit=true" : @"";
+    
     
 }
 
