@@ -41,6 +41,7 @@
 		3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */; };
 		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
 		3FA981261929CB8400795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
+		3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981281929CFE900795CB9 /* TOTIPEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,8 @@
 		3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPMediaType.h; sourceTree = "<group>"; };
 		3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPMediaType.m; sourceTree = "<group>"; };
 		3FA981241929CB5700795CB9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3FA981271929CFE900795CB9 /* TOTIPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPEntry.h; sourceTree = "<group>"; };
+		3FA981281929CFE900795CB9 /* TOTIPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,8 @@
 			children = (
 				3FA981121929756E00795CB9 /* TOTIPQueryController.h */,
 				3FA981131929756E00795CB9 /* TOTIPQueryController.m */,
+				3FA981271929CFE900795CB9 /* TOTIPEntry.h */,
+				3FA981281929CFE900795CB9 /* TOTIPEntry.m */,
 				3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */,
 				3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */,
 				3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */,
@@ -371,6 +376,7 @@
 				3FA980FE192973F100795CB9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
 				3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */,
+				3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */,
 				3FA980F2192973F100795CB9 /* AFNetworkReachabilityManager.m in Sources */,
 				3FA980A61929719000795CB9 /* main.m in Sources */,
 				3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */,
