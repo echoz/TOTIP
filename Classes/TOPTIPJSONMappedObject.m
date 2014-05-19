@@ -63,7 +63,7 @@ void WriteJSONFile(id JSONObject, NSString *jsonFilename) {
     NSData *data = [NSJSONSerialization dataWithJSONObject:JSONObject options:0 error:&jsonWriteError];
     if (data) {
         NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        [data writeToFile:[libraryPath stringByAppendingString:jsonFilename] atomically:YES];
+        [data writeToFile:[libraryPath stringByAppendingPathComponent:jsonFilename] atomically:YES];
     } else {
         NSLog(@"Error creating JSON data for writing: %@", jsonWriteError);
     }
