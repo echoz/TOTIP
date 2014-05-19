@@ -43,3 +43,28 @@
 }
 
 @end
+
+id LoadJSONFile(NSString *jsonFileame) {
+    NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[libraryPath stringByAppendingPathComponent:jsonFileame]]) return nil;
+    NSData *data = [NSData dataWithContentsOfFile:[libraryPath stringByAppendingPathComponent:jsonFileame]];
+    if (!data) return nil;
+    
+    NSError *deserializationError = nil;
+    id JSONObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&deserializationError];
+    if (!JSONObject)
+        NSLog(@"Unable to deserialize JSON file: %@", deserializationError);
+    
+    return JSONObject;
+}
+
+void WriteJSONFile(id JSONObject, NSString *jsonFilename) {
+    NSError *jsonWriteError = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:JSONObject options:0 error:&jsonWriteError];
+    if (data) {
+        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        [data writeToFile:[libraryPath stringByAppendingString:jsonFilename] atomically:YES];
+    } else {
+        NSLog(@"Error creating JSON data for writing: %@", jsonWriteError);
+    }
+}

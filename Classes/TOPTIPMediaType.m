@@ -7,6 +7,10 @@
 //
 
 #import "TOPTIPMediaType.h"
+#import "AFNetworking.h"
+
+#define URL_MEDIATYPES      [NSURL URLWithString:@"http://rss.itunes.apple.com/data/media-types.json"]
+#define JSON_MEDIATYPES     @"media-types.json"
 
 @interface TOPTIPMediaType ()
 @property (nonatomic, copy) NSString *translationKey;
@@ -41,6 +45,37 @@
     return @{@"store": @"store",
              @"id": @"identifier",
              @"translation_key": @"translationKey"};
+}
+
+#pragma mark - Static
+
+static NSArray *__mediaTypes = nil;
+static dispatch_queue_t mediaTypesUpdateQueue;
+
++(void)initialize {
+    mediaTypesUpdateQueue = dispatch_queue_create("co.lazylabs.TOTIP.media-types", NULL);
+}
+
++(NSArray *)availableMediaTypes {
+    return __mediaTypes;
+}
+
++(void)updateAvailableMediaTypesWithCompletion:(void (^)(NSArray *, NSError *))completion {
+    AFHTTPRequestOperation *mediaTypesRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:URL_MEDIATYPES]];
+    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/json", @"text/javascript", nil];
+
+    mediaTypesRequestOperation.responseSerializer = responseSerializer;
+    [mediaTypesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:responseObject];
+        WriteJSONFile(responseObject, JSON_MEDIATYPES);
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(__mediaTypes, nil); }) : nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, error); }) : nil;
+    }];
+    mediaTypesRequestOperation.completionQueue = mediaTypesUpdateQueue;
+    [mediaTypesRequestOperation start];
+
 }
 
 @end

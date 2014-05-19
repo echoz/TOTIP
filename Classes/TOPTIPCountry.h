@@ -19,4 +19,7 @@
 
 @property (nonatomic, readonly) NSSet *stores;
 
++(NSArray *)availableCountries;
++(void)updateAvailableCountriesWithCompletion:(void (^)(NSArray *countries, NSError *error))completion;
+
 @end

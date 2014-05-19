@@ -18,4 +18,6 @@
 @property (nonatomic, strong, readonly) NSDictionary *feedTypesURL;
 @property (nonatomic, strong, readonly) NSDictionary *genres;
 
++(NSArray *)availableMediaTypes;
++(void)updateAvailableMediaTypesWithCompletion:(void (^)(NSArray *mediaTypes, NSError *error))completion;
 @end

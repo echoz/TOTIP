@@ -24,19 +24,21 @@
 // store localization in Library/Localization/<language>/
 // store normal default
 
+extern NSString *const TOTIPQueryControllerErrorDomain;
+
+typedef NS_ENUM(NSUInteger, TOTIPQueryControllerErrorStatus) {
+    TOTIPQueryControllerFeedTypeMismatch,
+    TOTIPQueryControllerGenreMismatch
+};
+
 @interface TOTIPQueryController : NSObject
 
-@property (nonatomic, copy) NSString *country;
-@property (nonatomic, copy) NSString *genre;
-@property (nonatomic, copy) NSString *type;
-@property (nonatomic) NSUInteger limit;
+@property (nonatomic, readonly, copy) NSArray *results;
 
--(instancetype)initWithCountry:(NSString *)countryIdentifier type:(NSString *)typeIdentifier;
--(instancetype)initWithCountry:(NSString *)countryIdentifier type:(NSString *)typeIdentifier limit:(NSUInteger)limit;
--(instancetype)initWithCountry:(NSString *)countryIdentifier type:(NSString *)typeIdentifier limit:(NSUInteger)limit genre:(NSString *)genreIdentifier;
+@property (nonatomic, assign) BOOL explicitContent;
+@property (nonatomic, readonly, strong) TOPTIPCountry *country;
+@property (nonatomic, readonly, strong) TOPTIPMediaType *type;
 
-+(NSArray *)countries;
-+(NSArray *)mediaTypes;
-+(void)executeWithContextBlock:(void (^)(NSArray *countries, NSArray *mediaTypes, NSSet *errorSet))block;
-
+-(instancetype)initWithCountry:(TOPTIPCountry *)country type:(TOPTIPMediaType *)type;
+-(void)performQueryForFeedType:(NSString *)feed genre:(NSString *)genre limit:(NSUInteger)limit completion:(void (^)(NSArray *results, NSError *error))completion;
 @end
