@@ -76,6 +76,20 @@ static dispatch_queue_t mediaTypesUpdateQueue;
     }];
     mediaTypesRequestOperation.completionQueue = mediaTypesUpdateQueue;
     [mediaTypesRequestOperation start];
+}
+
++(void)fetchTranslationDictionaryForLocaleIdentifier:(NSString *)localeIdentifier completion:(void (^)(NSDictionary *, NSError *))completion {
+    NSURL *translationKeyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://rss.itunes.apple.com/data/lang/%@/media-types.json", localeIdentifier]];
+    AFHTTPRequestOperation *translationDictionaryOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:translationKeyURL]];
+    translationDictionaryOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [translationDictionaryOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(responseObject, nil); }) : nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, error); }) : nil;
+    }];
+    translationDictionaryOperation.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    [translationDictionaryOperation start];
 
 }
 

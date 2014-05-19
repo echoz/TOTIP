@@ -21,5 +21,6 @@
 
 +(NSArray *)availableCountries;
 +(void)updateAvailableCountriesWithCompletion:(void (^)(NSArray *countries, NSError *error))completion;
++(void)fetchTranslationDictionaryForLocaleIdentifier:(NSString *)localeIdentifier completion:(void (^)(NSDictionary *translation, NSError *error))completion;
 
 @end

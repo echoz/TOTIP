@@ -20,4 +20,5 @@
 
 +(NSArray *)availableMediaTypes;
 +(void)updateAvailableMediaTypesWithCompletion:(void (^)(NSArray *mediaTypes, NSError *error))completion;
++(void)fetchTranslationDictionaryForLocaleIdentifier:(NSString *)localeIdentifier completion:(void (^)(NSDictionary *translation, NSError *error))completion;
 @end
