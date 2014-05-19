@@ -38,7 +38,7 @@
 }
 
 +(NSDictionary *)mappedProperties {
-    NSAssert([self class] == [TOPTIPJSONMappedObject class], @"Please subclass this object");
+    NSAssert([self class] != [TOPTIPJSONMappedObject class], @"I CAN HAZ SUBCLASS?!?!??!?!");
     return nil;
 }
 
