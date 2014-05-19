@@ -12,7 +12,7 @@
 		3FA9809E1929719000795CB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809D1929719000795CB9 /* UIKit.framework */; };
 		3FA980A41929719000795CB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FA980A21929719000795CB9 /* InfoPlist.strings */; };
 		3FA980A61929719000795CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980A51929719000795CB9 /* main.m */; };
-		3FA980AA1929719000795CB9 /* LLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980A91929719000795CB9 /* LLAppDelegate.m */; };
+		3FA980AA1929719000795CB9 /* TOTIPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980A91929719000795CB9 /* TOTIPAppDelegate.m */; };
 		3FA980AC1929719000795CB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA980AB1929719000795CB9 /* Images.xcassets */; };
 		3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980CB192973F100795CB9 /* AFHTTPRequestOperation.m */; };
 		3FA980F0192973F100795CB9 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA980CD192973F100795CB9 /* AFHTTPRequestOperationManager.m */; };
@@ -51,8 +51,8 @@
 		3FA980A31929719000795CB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FA980A51929719000795CB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FA980A71929719000795CB9 /* TOTIP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOTIP-Prefix.pch"; sourceTree = "<group>"; };
-		3FA980A81929719000795CB9 /* LLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLAppDelegate.h; sourceTree = "<group>"; };
-		3FA980A91929719000795CB9 /* LLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLAppDelegate.m; sourceTree = "<group>"; };
+		3FA980A81929719000795CB9 /* TOTIPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTIPAppDelegate.h; sourceTree = "<group>"; };
+		3FA980A91929719000795CB9 /* TOTIPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTIPAppDelegate.m; sourceTree = "<group>"; };
 		3FA980AB1929719000795CB9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3FA980B21929719000795CB9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3FA980CA192973F100795CB9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 		3FA9809F1929719000795CB9 /* TOTIP */ = {
 			isa = PBXGroup;
 			children = (
-				3FA980A81929719000795CB9 /* LLAppDelegate.h */,
-				3FA980A91929719000795CB9 /* LLAppDelegate.m */,
+				3FA980A81929719000795CB9 /* TOTIPAppDelegate.h */,
+				3FA980A91929719000795CB9 /* TOTIPAppDelegate.m */,
 				3FA980AB1929719000795CB9 /* Images.xcassets */,
 				3FA980A01929719000795CB9 /* Supporting Files */,
 			);
@@ -287,7 +287,7 @@
 		3FA9808E1929719000795CB9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = LL;
+				CLASSPREFIX = TOTIP;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = LazyLabs;
 			};
@@ -334,7 +334,7 @@
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
 				3FA980F6192973F100795CB9 /* AFURLResponseSerialization.m in Sources */,
-				3FA980AA1929719000795CB9 /* LLAppDelegate.m in Sources */,
+				3FA980AA1929719000795CB9 /* TOTIPAppDelegate.m in Sources */,
 				3FA980FD192973F100795CB9 /* UIProgressView+AFNetworking.m in Sources */,
 				3FA980F1192973F100795CB9 /* AFHTTPSessionManager.m in Sources */,
 				3FA980F8192973F100795CB9 /* AFNetworkActivityIndicatorManager.m in Sources */,

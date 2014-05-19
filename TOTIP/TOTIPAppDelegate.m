@@ -1,5 +1,5 @@
 //
-//  LLAppDelegate.m
+//  TOTIPAppDelegate.m
 //  TOTIP
 //
 //  Created by Jeremy Foo on 18/5/14.
@@ -7,8 +7,9 @@
 //
 
 #import "LLAppDelegate.h"
+#import "TOTIPQueryController.h"
 
-@implementation LLAppDelegate
+@implementation TOTIPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,6 +17,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [TOPTIPCountry updateAvailableCountriesWithCompletion:^(NSArray *countries, NSError *error) {
+        [TOPTIPMediaType updateAvailableMediaTypesWithCompletion:^(NSArray *mediaTypes, NSError *error) {
+            TOTIPQueryController *controller = [[TOTIPQueryController alloc] initWithCountry:[countries objectAtIndex:140] type:[mediaTypes objectAtIndex:0]];
+            [controller performQueryForFeedType:[[[[mediaTypes objectAtIndex:0] feedTypesURL] allKeys] objectAtIndex:0] genre:[[[[mediaTypes objectAtIndex:0] genres] allKeys] objectAtIndex:0] limit:10 completion:NULL];
+        }];
+    }];
+    
     return YES;
 }
 

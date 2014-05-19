@@ -1,5 +1,5 @@
 //
-//  LLAppDelegate.h
+//  TOTIPAppDelegate.h
 //  TOTIP
 //
 //  Created by Jeremy Foo on 18/5/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LLAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TOTIPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
