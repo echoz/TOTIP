@@ -8,13 +8,40 @@
 
 #import "TOTIPEntry.h"
 
-@implementation TOTIPEntry
+@interface TOTIPEntry ()
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSURL *entryURL;
 
-+(instancetype)entryWithXMLEntry:(ONOXMLElement *)xmlEntry {
-    TOTIPEntry *instance = [[[self class] alloc] init];
-    [instance updateWithXMLEntry:xmlEntry];
-    return instance;
-}
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *summary;
+
+@property (nonatomic, copy) NSString *category;
+@property (nonatomic, copy) NSString *categoryID;
+
+@property (nonatomic, copy) NSString *currency;
+@property (nonatomic, copy) NSString *costString;
+@property (nonatomic, assign) double price;
+
+@property (nonatomic, copy) NSString *rentalCurrency;
+@property (nonatomic, copy) NSString *rentalCostString;
+@property (nonatomic, assign) double rentalPrice;
+
+@property (nonatomic, copy) NSString *artist;
+@property (nonatomic, copy) NSURL *artistURL;
+@property (nonatomic, copy) NSString *publisher;
+@property (nonatomic, copy) NSString *vendor;
+@property (nonatomic, copy) NSString *copyright;
+
+@property (nonatomic, copy) NSDate *releaseDate;
+
+@property (nonatomic, copy) NSString *contentHTML;
+
+@property (nonatomic, strong) NSDictionary *images;
+
+@end
+
+@implementation TOTIPEntry
 
 +(NSDateFormatter *)utcDateStringFormatter {
     static NSDateFormatter *__dateFormatter = nil;
@@ -27,45 +54,39 @@
     return __dateFormatter;
 }
 
--(void)updateWithXMLEntry:(ONOXMLElement *)xmlEntry {
-    _identifier = [[[xmlEntry firstChildWithTag:@"id"] attributes] objectForKey:@"imd:id"];
-    _entryURL = [NSURL URLWithString:[[xmlEntry firstChildWithTag:@"id"] stringValue]];
++(NSDictionary *)mappedProperties {
+    return @{@"id.attributes.im:id": @"identifier",
+             @"im:name.label": @"name",
+             @"title": @"title",
+             @"summary": @"summary",
+             @"category.attributes.term": @"category",
+             @"category.attributes.im:id": @"categoryID",
+             @"im:price.attributes.currency": @"currency",
+             @"im:price.label": @"costString",
+             @"im:rentalPrice.attributes.currency": @"rentalCurrency",
+             @"im:rentalPrice.label": @"rentalCostString",
+             @"im:artist.label": @"artist",
+             @"im:publisher.label": @"publisher",
+             @"im:vendorName.label": @"vendor",
+             @"rights.label": @"copyright"};
+}
 
-    _name = [[xmlEntry firstChildWithTag:@"im:name"] stringValue];
-    _title = [[xmlEntry firstChildWithTag:@"title"] stringValue];
-    _summary = [[xmlEntry firstChildWithTag:@"summary"] stringValue];
+-(void)updateWithJSON:(NSDictionary *)json {
+    [super updateWithJSON:json];
     
-    _category = [[[xmlEntry firstChildWithTag:@"category"] attributes] objectForKey:@"term"];
-    _categoryID = [[[xmlEntry firstChildWithTag:@"category"] attributes] objectForKey:@"im:id"];
-    
-    _currency = [[[xmlEntry firstChildWithTag:@"im:price"] attributes] objectForKey:@"currency"];
-    _costString = [[xmlEntry firstChildWithTag:@"im:price"] stringValue];
-    _price = [[[[xmlEntry firstChildWithTag:@"im:price"] attributes] objectForKey:@"amount"] doubleValue];
+    _price = [[json valueForKeyPath:@"im:price.attributes.amount"] doubleValue];
+    _rentalPrice = [[json valueForKeyPath:@"im:rentalPrice.attributes.amount"] doubleValue];
+    _entryURL = [NSURL URLWithString:[json valueForKeyPath:@"id.label"]];
+    _artistURL = [NSURL URLWithString:[json valueForKeyPath:@"im:artist.attributes.href"]];
 
-    _rentalCurrency = [[[xmlEntry firstChildWithTag:@"im:rentalPrice"] attributes] objectForKey:@"currency"];
-    _rentalCostString = [[xmlEntry firstChildWithTag:@"im:rentalPrice"] stringValue];
-    _rentalPrice = [[[[xmlEntry firstChildWithTag:@"im:rentalPrice"] attributes] objectForKey:@"amount"] doubleValue];
-    
-    _artist = [[xmlEntry firstChildWithTag:@"im:artist"] stringValue];
-    _artistURL = [NSURL URLWithString:[[[xmlEntry firstChildWithTag:@"im:artist"] attributes] objectForKey:@"href"]];
-    _publisher = [[xmlEntry firstChildWithTag:@"im:publisher"] stringValue];
-    _vendor = [[xmlEntry firstChildWithTag:@"im:vendorName"] stringValue];
-    _copyright = [[xmlEntry firstChildWithTag:@"rights"] stringValue];
-
-    _releaseDate = [[xmlEntry firstChildWithTag:@"im:releaseDate"] dateValue];
-    _lastUpdated = [[xmlEntry firstChildWithTag:@"updated"] dateValue];
-    
-    for (ONOXMLElement *node in [xmlEntry XPath:@"//content[@type='HTML']"]) {
-        _contentHTML = [node stringValue];
-        break;
-    }
+    _releaseDate = [[[self class] utcDateStringFormatter] dateFromString:[json valueForKeyPath:@"im:releaseDate.label"]];
     
     NSMutableDictionary *imageDictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-    for (ONOXMLElement *imageNode in [xmlEntry XPath:@"//im:image"]) {
-        NSString *height = [[imageNode attributes] objectForKey:@"height"];
+    for (NSDictionary *imageDict in [json valueForKey:@"im:image"]) {
+        NSString *height = [imageDict valueForKeyPath:@"attributes.height"];
         if (!height) continue;
         
-        NSURL *imageURL = [NSURL URLWithString:[imageNode stringValue]];
+        NSURL *imageURL = [NSURL URLWithString:[json valueForKeyPath:@"label"]];
         if (!imageURL) continue;
         
         [imageDictionary setObject:imageURL forKey:height];

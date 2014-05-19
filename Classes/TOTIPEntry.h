@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Ono.h"
+#import "TOPTIPJSONMappedObject.h"
 
-@interface TOTIPEntry : NSObject
+@interface TOTIPEntry : TOPTIPJSONMappedObject
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSURL *entryURL;
@@ -36,12 +36,7 @@
 @property (nonatomic, copy, readonly) NSString *copyright;
 
 @property (nonatomic, copy, readonly) NSDate *releaseDate;
-@property (nonatomic, copy, readonly) NSDate *lastUpdated;
-
-@property (nonatomic, copy, readonly) NSString *contentHTML;
 
 @property (nonatomic, strong, readonly) NSDictionary *images;
 
-+(instancetype)entryWithXMLEntry:(ONOXMLElement *)xmlEntry;
--(void)updateWithXMLEntry:(ONOXMLElement *)xmlEntry;
 @end
