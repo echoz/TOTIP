@@ -11,7 +11,7 @@
 #import "TOTIPCountry.h"
 #import "TOTIPMediaType.h"
 
-@interface TOTIPListViewController ()
+@interface TOTIPListViewController () <TOTIPQueryBuilderViewControllerDelegate>
 
 @end
 
@@ -75,8 +75,18 @@
 
 -(void)queryBuilderTapped {
     TOTIPQueryBuilderViewController *queryBuilder = [[TOTIPQueryBuilderViewController alloc] initWithCountries:[TOTIPCountry availableCountries] mediaTypes:[TOTIPMediaType availableMediaTypes] localizationMap:self.localizationMap];
+    queryBuilder.delegate = self;
     [self.navigationController presentViewController:queryBuilder animated:YES completion:NULL];
 }
 
+-(void)didCompleteQueryBuilder:(TOTIPQueryBuilderViewController *)controller {
+    TOTIPQuery *query = [[TOTIPQuery alloc] initWithCountry:controller.selectedCountry type:controller.selectedMediaType feedType:controller.selectedFeedType genre:controller.selectedGenre limit:controller.selectedLimit];
+    query.explicitContent = controller.selectedExplicit;
+    [query performQueryWithCompletion:^(NSArray *results, NSError *error) {
+        NSLog(@"%@", results);
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end
