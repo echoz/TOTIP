@@ -79,9 +79,10 @@ static dispatch_queue_t mediaTypesUpdateQueue;
 }
 
 +(void)fetchTranslationDictionaryForLocaleIdentifier:(NSString *)localeIdentifier completion:(void (^)(NSDictionary *, NSError *))completion {
-    NSURL *translationKeyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://rss.itunes.apple.com/data/lang/%@/media-types.json", localeIdentifier]];
+    NSURL *translationKeyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://rss.itunes.apple.com/data/lang/%@/media-types.json?_=%.0f", localeIdentifier, [[NSDate date] timeIntervalSince1970]]];
     AFHTTPRequestOperation *translationDictionaryOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:translationKeyURL]];
     translationDictionaryOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+    translationDictionaryOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
     
     [translationDictionaryOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(responseObject, nil); }) : nil;

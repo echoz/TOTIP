@@ -30,7 +30,7 @@
     NSMutableSet *stores = [NSMutableSet setWithCapacity:7];
     NSDictionary *storesObject = [json valueForKeyPath:@"stores"];
     for (NSString *store in storesObject) {
-        if (![[storesObject objectForKey:stores] boolValue]) continue;
+        if (![[storesObject objectForKey:store] boolValue]) continue;
         [stores addObject:store];
     }
     
@@ -77,12 +77,13 @@ static dispatch_queue_t countriesUpdateQueue;
 }
 
 +(void)fetchTranslationDictionaryForLocaleIdentifier:(NSString *)localeIdentifier completion:(void (^)(NSDictionary *, NSError *))completion {
-    NSURL *translationKeyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://rss.itunes.apple.com/data/lang/%@/common.json", localeIdentifier]];
+    NSURL *translationKeyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://rss.itunes.apple.com/data/lang/%@/common.json?_=%.0f", localeIdentifier, [[NSDate date] timeIntervalSince1970]]];
     AFHTTPRequestOperation *translationDictionaryOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:translationKeyURL]];
     translationDictionaryOperation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
+    translationDictionaryOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+
     [translationDictionaryOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion([responseObject valueForKey:@"feed_country"], nil); }) : nil;
+        (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(responseObject, nil); }) : nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, error); }) : nil;
     }];
