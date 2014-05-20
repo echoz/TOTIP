@@ -58,7 +58,7 @@ NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
     [feedQueryOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         id entries = [responseObject valueForKeyPath:@"feed.entry"];
         
-        _results = [TOTIPEntry objectsWithJSONArray:([entries isKindOfClass:[NSArray class]]) ? entries : @[entries]];
+        _results = (entries) ? ([TOTIPEntry objectsWithJSONArray:([entries isKindOfClass:[NSArray class]]) ? entries : @[entries]]) : nil;
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(self.results, nil); }) : nil;
     
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
