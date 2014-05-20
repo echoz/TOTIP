@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "TOPTIPJSONMappedObject.h"
+#import "TOTIPJSONMappedObject.h"
 
-@interface TOPTIPMediaType : TOPTIPJSONMappedObject
+@interface TOTIPMediaType : TOTIPJSONMappedObject
 
 @property (nonatomic, copy, readonly) NSString *translationKey;
 @property (nonatomic, copy, readonly) NSString *identifier;

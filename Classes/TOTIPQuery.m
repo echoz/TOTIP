@@ -16,7 +16,7 @@ NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
 #pragma mark - Object Life Cycle
 
 // no need for checks
--(instancetype)initWithCountry:(TOPTIPCountry *)country type:(TOPTIPMediaType *)type {
+-(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type {
     if ((!country) || (!type)) return nil;
     
     if ((self = [super init])) {

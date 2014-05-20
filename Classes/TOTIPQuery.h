@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TOPTIPCountry.h"
-#import "TOPTIPMediaType.h"
+#import "TOTIPCountry.h"
+#import "TOTIPMediaType.h"
 #import "TOTIPEntry.h"
 
 // Common:
@@ -37,9 +37,9 @@ typedef NS_ENUM(NSUInteger, TOTIPQueryErrorStatus) {
 @property (nonatomic, readonly, copy) NSArray *results;
 
 @property (nonatomic, assign) BOOL explicitContent;
-@property (nonatomic, readonly, strong) TOPTIPCountry *country;
-@property (nonatomic, readonly, strong) TOPTIPMediaType *type;
+@property (nonatomic, readonly, strong) TOTIPCountry *country;
+@property (nonatomic, readonly, strong) TOTIPMediaType *type;
 
--(instancetype)initWithCountry:(TOPTIPCountry *)country type:(TOPTIPMediaType *)type;
+-(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type;
 -(void)performQueryForFeedType:(NSString *)feed genre:(NSString *)genre limit:(NSUInteger)limit completion:(void (^)(NSArray *results, NSError *error))completion;
 @end

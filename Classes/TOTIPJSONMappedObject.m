@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "TOPTIPJSONMappedObject.h"
+#import "TOTIPJSONMappedObject.h"
 
-@implementation TOPTIPJSONMappedObject
+@implementation TOTIPJSONMappedObject
 
 +(NSArray *)objectsWithJSONArray:(NSArray *)jsonArray {
     if (!jsonArray) return nil;
@@ -23,7 +23,7 @@
 +(instancetype)objectWithJSON:(NSDictionary *)json {
     if (!json) return nil;
     
-    TOPTIPJSONMappedObject *instance = [[[self class] alloc] init];
+    TOTIPJSONMappedObject *instance = [[[self class] alloc] init];
     [instance updateWithJSON:json];
     return instance;
 }
@@ -38,7 +38,7 @@
 }
 
 +(NSDictionary *)mappedProperties {
-    NSAssert([self class] != [TOPTIPJSONMappedObject class], @"I CAN HAZ SUBCLASS?!?!??!?!");
+    NSAssert([self class] != [TOTIPJSONMappedObject class], @"I CAN HAZ SUBCLASS?!?!??!?!");
     return nil;
 }
 
@@ -47,7 +47,7 @@
 id LoadJSONFile(NSString *jsonFileame) {
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     if (![[NSFileManager defaultManager] fileExistsAtPath:[libraryPath stringByAppendingPathComponent:jsonFileame]]) return nil;
-    NSData *data = [NSData dataWithContentsOfFile:[libraryPath stringByAppendingPathComponent:jsonFileame]];
+    NSData *data = [NSData dataWithContentsOfFile:[[libraryPath stringByAppendingPathComponent:@"TOTIP"] stringByAppendingPathComponent:jsonFileame]];
     if (!data) return nil;
     
     NSError *deserializationError = nil;
@@ -63,7 +63,7 @@ void WriteJSONFile(id JSONObject, NSString *jsonFilename) {
     NSData *data = [NSJSONSerialization dataWithJSONObject:JSONObject options:0 error:&jsonWriteError];
     if (data) {
         NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        [data writeToFile:[libraryPath stringByAppendingPathComponent:jsonFilename] atomically:YES];
+        [data writeToFile:[[libraryPath stringByAppendingPathComponent:@"TOTIP"] stringByAppendingPathComponent:jsonFilename] atomically:YES];
     } else {
         NSLog(@"Error creating JSON data for writing: %@", jsonWriteError);
     }

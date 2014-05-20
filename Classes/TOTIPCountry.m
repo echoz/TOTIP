@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "TOPTIPCountry.h"
+#import "TOTIPCountry.h"
 #import "AFNetworking.h"
 
-@interface TOPTIPCountry ()
+@interface TOTIPCountry ()
 @property (nonatomic, copy) NSString *translationKey;
 @property (nonatomic, copy) NSString *flagIcon;
 @property (nonatomic, copy) NSString *countryCode;
@@ -21,7 +21,7 @@
 #define URL_COUNTRIES       [NSURL URLWithString:@"http://rss.itunes.apple.com/data/countries.json"]
 #define JSON_COUNTRIES      @"countries.json"
 
-@implementation TOPTIPCountry
+@implementation TOTIPCountry
 
 -(void)updateWithJSON:(NSDictionary *)json {
     [super updateWithJSON:json];
@@ -51,7 +51,7 @@ static NSArray *__countries = nil;
 static dispatch_queue_t countriesUpdateQueue;
 
 +(void)load {
-    __countries = [TOPTIPCountry objectsWithJSONArray:LoadJSONFile(JSON_COUNTRIES)];
+    __countries = [TOTIPCountry objectsWithJSONArray:LoadJSONFile(JSON_COUNTRIES)];
     countriesUpdateQueue = dispatch_queue_create("co.lazylabs.TOTIP.countries", NULL);
 }
 
@@ -66,7 +66,7 @@ static dispatch_queue_t countriesUpdateQueue;
     
     countriesRequestOperation.responseSerializer = responseSerializer;
     [countriesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        __countries = [TOPTIPCountry objectsWithJSONArray:responseObject];
+        __countries = [TOTIPCountry objectsWithJSONArray:responseObject];
         WriteJSONFile(responseObject, JSON_COUNTRIES);
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(__countries, nil); }) : nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

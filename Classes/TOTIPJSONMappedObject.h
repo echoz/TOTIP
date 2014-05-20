@@ -11,7 +11,7 @@
 extern id LoadJSONFile(NSString *jsonFilename);
 extern void WriteJSONFile(id JSONObject, NSString *jsonFilename);
 
-@interface TOPTIPJSONMappedObject : NSObject
+@interface TOTIPJSONMappedObject : NSObject
 
 +(NSArray *)objectsWithJSONArray:(NSArray *)jsonArray;
 +(instancetype)objectWithJSON:(NSDictionary *)json;

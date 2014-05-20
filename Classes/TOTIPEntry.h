@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TOPTIPJSONMappedObject.h"
+#import "TOTIPJSONMappedObject.h"
 
-@interface TOTIPEntry : TOPTIPJSONMappedObject
+@interface TOTIPEntry : TOTIPJSONMappedObject
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSURL *entryURL;

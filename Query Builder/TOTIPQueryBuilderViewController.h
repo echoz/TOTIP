@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TOTIPCountry.h"
+#import "TOTIPMediaType.h"
 
 @interface TOTIPQueryBuilderViewController : UINavigationController
 

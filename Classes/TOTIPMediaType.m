@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 LazyLabs. All rights reserved.
 //
 
-#import "TOPTIPMediaType.h"
+#import "TOTIPMediaType.h"
 #import "AFNetworking.h"
 
 #define URL_MEDIATYPES      [NSURL URLWithString:@"http://rss.itunes.apple.com/data/media-types.json"]
 #define JSON_MEDIATYPES     @"media-types.json"
 
-@interface TOPTIPMediaType ()
+@interface TOTIPMediaType ()
 @property (nonatomic, copy) NSString *translationKey;
 @property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, copy) NSString *store;
 
 @end
 
-@implementation TOPTIPMediaType
+@implementation TOTIPMediaType
 
 -(void)updateWithJSON:(NSDictionary *)json {
     [super updateWithJSON:json];
@@ -53,7 +53,7 @@ static NSArray *__mediaTypes = nil;
 static dispatch_queue_t mediaTypesUpdateQueue;
 
 +(void)load {
-    __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:LoadJSONFile(JSON_MEDIATYPES)];
+    __mediaTypes = [TOTIPMediaType objectsWithJSONArray:LoadJSONFile(JSON_MEDIATYPES)];
     mediaTypesUpdateQueue = dispatch_queue_create("co.lazylabs.TOTIP.media-types", NULL);
 }
 
@@ -68,7 +68,7 @@ static dispatch_queue_t mediaTypesUpdateQueue;
 
     mediaTypesRequestOperation.responseSerializer = responseSerializer;
     [mediaTypesRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        __mediaTypes = [TOPTIPMediaType objectsWithJSONArray:responseObject];
+        __mediaTypes = [TOTIPMediaType objectsWithJSONArray:responseObject];
         WriteJSONFile(responseObject, JSON_MEDIATYPES);
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(__mediaTypes, nil); }) : nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

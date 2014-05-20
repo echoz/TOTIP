@@ -35,9 +35,9 @@
 		3FA981031929745400795CB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981021929745400795CB9 /* Security.framework */; };
 		3FA981051929745900795CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981041929745900795CB9 /* SystemConfiguration.framework */; };
 		3FA981141929756E00795CB9 /* TOTIPQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981131929756E00795CB9 /* TOTIPQuery.m */; };
-		3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */; };
-		3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */; };
-		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
+		3FA9811D192989F500795CB9 /* TOTIPJSONMappedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811C192989F500795CB9 /* TOTIPJSONMappedObject.m */; };
+		3FA9812019298AF900795CB9 /* TOTIPCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9811F19298AF900795CB9 /* TOTIPCountry.m */; };
+		3FA9812319298D7100795CB9 /* TOTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOTIPMediaType.m */; };
 		3FA981261929CB8400795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
 		3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981281929CFE900795CB9 /* TOTIPEntry.m */; };
 		3FDA00B6192AF91A0009D882 /* TOTIPOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */; };
@@ -99,12 +99,12 @@
 		3FA981061929749C00795CB9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3FA981121929756E00795CB9 /* TOTIPQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQuery.h; sourceTree = "<group>"; };
 		3FA981131929756E00795CB9 /* TOTIPQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQuery.m; sourceTree = "<group>"; };
-		3FA9811B192989F500795CB9 /* TOPTIPJSONMappedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPJSONMappedObject.h; sourceTree = "<group>"; };
-		3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPJSONMappedObject.m; sourceTree = "<group>"; };
-		3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPCountry.h; sourceTree = "<group>"; };
-		3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPCountry.m; sourceTree = "<group>"; };
-		3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPTIPMediaType.h; sourceTree = "<group>"; };
-		3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPTIPMediaType.m; sourceTree = "<group>"; };
+		3FA9811B192989F500795CB9 /* TOTIPJSONMappedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPJSONMappedObject.h; sourceTree = "<group>"; };
+		3FA9811C192989F500795CB9 /* TOTIPJSONMappedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPJSONMappedObject.m; sourceTree = "<group>"; };
+		3FA9811E19298AF900795CB9 /* TOTIPCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPCountry.h; sourceTree = "<group>"; };
+		3FA9811F19298AF900795CB9 /* TOTIPCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPCountry.m; sourceTree = "<group>"; };
+		3FA9812119298D7100795CB9 /* TOTIPMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPMediaType.h; sourceTree = "<group>"; };
+		3FA9812219298D7100795CB9 /* TOTIPMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPMediaType.m; sourceTree = "<group>"; };
 		3FA981241929CB5700795CB9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3FA981271929CFE900795CB9 /* TOTIPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPEntry.h; sourceTree = "<group>"; };
 		3FA981281929CFE900795CB9 /* TOTIPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPEntry.m; sourceTree = "<group>"; };
@@ -269,12 +269,12 @@
 				3FA981131929756E00795CB9 /* TOTIPQuery.m */,
 				3FA981271929CFE900795CB9 /* TOTIPEntry.h */,
 				3FA981281929CFE900795CB9 /* TOTIPEntry.m */,
-				3FA9811E19298AF900795CB9 /* TOPTIPCountry.h */,
-				3FA9811F19298AF900795CB9 /* TOPTIPCountry.m */,
-				3FA9812119298D7100795CB9 /* TOPTIPMediaType.h */,
-				3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */,
-				3FA9811B192989F500795CB9 /* TOPTIPJSONMappedObject.h */,
-				3FA9811C192989F500795CB9 /* TOPTIPJSONMappedObject.m */,
+				3FA9811E19298AF900795CB9 /* TOTIPCountry.h */,
+				3FA9811F19298AF900795CB9 /* TOTIPCountry.m */,
+				3FA9812119298D7100795CB9 /* TOTIPMediaType.h */,
+				3FA9812219298D7100795CB9 /* TOTIPMediaType.m */,
+				3FA9811B192989F500795CB9 /* TOTIPJSONMappedObject.h */,
+				3FA9811C192989F500795CB9 /* TOTIPJSONMappedObject.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				3FDA00B6192AF91A0009D882 /* TOTIPOptionsViewController.m in Sources */,
 				3FA981141929756E00795CB9 /* TOTIPQuery.m in Sources */,
 				3FDA00B9192AFEC00009D882 /* TOTIPQueryBuilderViewController.m in Sources */,
-				3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */,
+				3FA9812319298D7100795CB9 /* TOTIPMediaType.m in Sources */,
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
 				3FA980F6192973F100795CB9 /* AFURLResponseSerialization.m in Sources */,
@@ -363,11 +363,11 @@
 				3FA980FB192973F100795CB9 /* UIButton+AFNetworking.m in Sources */,
 				3FA980FE192973F100795CB9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
-				3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */,
+				3FA9811D192989F500795CB9 /* TOTIPJSONMappedObject.m in Sources */,
 				3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */,
 				3FA980F2192973F100795CB9 /* AFNetworkReachabilityManager.m in Sources */,
 				3FA980A61929719000795CB9 /* main.m in Sources */,
-				3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */,
+				3FA9812019298AF900795CB9 /* TOTIPCountry.m in Sources */,
 				3FA980F9192973F100795CB9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
