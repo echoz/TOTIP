@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F3F4114192AB0250028449E /* TOTIPQueryBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */; };
 		3FA9809A1929719000795CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA980991929719000795CB9 /* Foundation.framework */; };
 		3FA9809C1929719000795CB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809B1929719000795CB9 /* CoreGraphics.framework */; };
 		3FA9809E1929719000795CB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809D1929719000795CB9 /* UIKit.framework */; };
@@ -41,11 +40,11 @@
 		3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9812219298D7100795CB9 /* TOPTIPMediaType.m */; };
 		3FA981261929CB8400795CB9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA981061929749C00795CB9 /* libxml2.dylib */; };
 		3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981281929CFE900795CB9 /* TOTIPEntry.m */; };
+		3FDA00B6192AF91A0009D882 /* TOTIPOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */; };
+		3FDA00B9192AFEC00009D882 /* TOTIPQueryBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F3F4112192AB0250028449E /* TOTIPQueryBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryBuilderViewController.h; sourceTree = "<group>"; };
-		3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryBuilderViewController.m; sourceTree = "<group>"; };
 		3FA980961929719000795CB9 /* TOTIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOTIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA980991929719000795CB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FA9809B1929719000795CB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +108,10 @@
 		3FA981241929CB5700795CB9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3FA981271929CFE900795CB9 /* TOTIPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPEntry.h; sourceTree = "<group>"; };
 		3FA981281929CFE900795CB9 /* TOTIPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPEntry.m; sourceTree = "<group>"; };
+		3FDA00B4192AF91A0009D882 /* TOTIPOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPOptionsViewController.h; sourceTree = "<group>"; };
+		3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPOptionsViewController.m; sourceTree = "<group>"; };
+		3FDA00B7192AFEC00009D882 /* TOTIPQueryBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryBuilderViewController.h; sourceTree = "<group>"; };
+		3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryBuilderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +135,10 @@
 		3F3F4111192AB00D0028449E /* Query Builder */ = {
 			isa = PBXGroup;
 			children = (
-				3F3F4112192AB0250028449E /* TOTIPQueryBuilderViewController.h */,
-				3F3F4113192AB0250028449E /* TOTIPQueryBuilderViewController.m */,
+				3FDA00B4192AF91A0009D882 /* TOTIPOptionsViewController.h */,
+				3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */,
+				3FDA00B7192AFEC00009D882 /* TOTIPQueryBuilderViewController.h */,
+				3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */,
 			);
 			path = "Query Builder";
 			sourceTree = "<group>";
@@ -342,7 +347,9 @@
 				3FA980F4192973F100795CB9 /* AFURLConnectionOperation.m in Sources */,
 				3FA980FA192973F100795CB9 /* UIAlertView+AFNetworking.m in Sources */,
 				3FA980F3192973F100795CB9 /* AFSecurityPolicy.m in Sources */,
+				3FDA00B6192AF91A0009D882 /* TOTIPOptionsViewController.m in Sources */,
 				3FA981141929756E00795CB9 /* TOTIPQuery.m in Sources */,
+				3FDA00B9192AFEC00009D882 /* TOTIPQueryBuilderViewController.m in Sources */,
 				3FA9812319298D7100795CB9 /* TOPTIPMediaType.m in Sources */,
 				3FA980EF192973F100795CB9 /* AFHTTPRequestOperation.m in Sources */,
 				3FA980F7192973F100795CB9 /* AFURLSessionManager.m in Sources */,
@@ -358,7 +365,6 @@
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
 				3FA9811D192989F500795CB9 /* TOPTIPJSONMappedObject.m in Sources */,
 				3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */,
-				3F3F4114192AB0250028449E /* TOTIPQueryBuilderViewController.m in Sources */,
 				3FA980F2192973F100795CB9 /* AFNetworkReachabilityManager.m in Sources */,
 				3FA980A61929719000795CB9 /* main.m in Sources */,
 				3FA9812019298AF900795CB9 /* TOPTIPCountry.m in Sources */,
