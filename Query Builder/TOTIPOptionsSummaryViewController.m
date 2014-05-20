@@ -17,7 +17,7 @@
 
 -(instancetype)initWithTitle:(NSString *)title optionsSummary:(NSDictionary *)optionsSummary {
     if ((self = [super initWithNibName:nil bundle:nil])) {
-        _title = title;
+        _summaryTitle = title;
         _optionsSummaryMap = optionsSummary;
         _keys = [_optionsSummaryMap allKeys];
     }
@@ -45,7 +45,7 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) return self.title;
+    if (section == 0) return self.summaryTitle;
     return nil;
 }
 

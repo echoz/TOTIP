@@ -19,7 +19,7 @@
 @interface TOTIPOptionsSummaryViewController : UIViewController
 @property (nonatomic, weak) id<TOTIPOptionsSummaryViewControllerDelegate> delegate;
 
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *summaryTitle;
 @property (nonatomic, copy) NSDictionary *optionsSummaryMap;
 
 -(instancetype)initWithTitle:(NSString *)title optionsSummary:(NSDictionary *)optionsSummary;
