@@ -16,12 +16,15 @@ NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
 #pragma mark - Object Life Cycle
 
 // no need for checks
--(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type {
+-(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type feedType:(NSString *)feedTypeIdentifier genre:(NSString *)genreIdentifier limit:(NSUInteger)limit {
     if ((!country) || (!type)) return nil;
     
     if ((self = [super init])) {
         _country = country;
         _type = type;
+        _feedIdentifier = feedTypeIdentifier;
+        _genreIdentifier = genreIdentifier;
+        _limit = limit;
         _explicitContent = NO;
     }
     return self;
@@ -29,8 +32,8 @@ NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
 
 #pragma mark - Query
 
--(void)performQueryForFeedType:(NSString *)feed genre:(NSString *)genre limit:(NSUInteger)limit completion:(void (^)(NSArray *results, NSError *error))completion {
-    NSMutableString *urlFormat = [[self.type.feedTypesURL objectForKey:feed] mutableCopy];
+-(void)performQueryWithCompletion:(void (^)(NSArray *, NSError *))completion {
+    NSMutableString *urlFormat = [[self.type.feedTypesURL objectForKey:self.feedIdentifier] mutableCopy];
     if (!urlFormat) {
         (completion) ? dispatch_async(dispatch_get_main_queue(), ^{ completion(nil, [NSError errorWithDomain:TOTIPQueryErrorDomain code:TOTIPQueryFeedTypeMismatch userInfo:nil]); }) : nil;
         return;
@@ -39,8 +42,8 @@ NSString *const TOTIPQueryErrorDomain = @"TOTIPQueryErrorDomain";
     [urlFormat replaceOccurrencesOfString:@"<%= country_code %>" withString:self.country.countryCode options:0 range:NSMakeRange(0, [urlFormat length])];
     [urlFormat replaceOccurrencesOfString:@"<%= parameters %>" withString:@"" options:0 range:NSMakeRange(0, [urlFormat length])];
     
-    NSString *genreParam = ([self.type.genres objectForKey:genre]) ? [NSString stringWithFormat:@"genre=%@", [self.type.genres objectForKey:genre]] : @"";
-    NSString *limitParam = [NSString stringWithFormat:@"limit=%@", @((limit > 0) ? limit : 10)];
+    NSString *genreParam = ([self.type.genres objectForKey:self.genreIdentifier]) ? [NSString stringWithFormat:@"genre=%@", [self.type.genres objectForKey:self.genreIdentifier]] : @"";
+    NSString *limitParam = [NSString stringWithFormat:@"limit=%@", @((self.limit > 0) ? self.limit : 10)];
     NSString *explictParam = (self.explicitContent) ? @"explicit=true" : @"";
     
     NSMutableString *parameters = [NSMutableString stringWithFormat:@"%@%@", ([genreParam length] > 0) ? @"/" : @"", genreParam];

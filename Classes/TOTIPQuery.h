@@ -36,10 +36,13 @@ typedef NS_ENUM(NSUInteger, TOTIPQueryErrorStatus) {
 
 @property (nonatomic, readonly, copy) NSArray *results;
 
-@property (nonatomic, assign) BOOL explicitContent;
 @property (nonatomic, readonly, strong) TOTIPCountry *country;
 @property (nonatomic, readonly, strong) TOTIPMediaType *type;
+@property (nonatomic, copy) NSString *feedIdentifier;
+@property (nonatomic, copy) NSString *genreIdentifier;
+@property (nonatomic, assign) NSUInteger limit;
+@property (nonatomic, assign) BOOL explicitContent;
 
--(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type;
--(void)performQueryForFeedType:(NSString *)feed genre:(NSString *)genre limit:(NSUInteger)limit completion:(void (^)(NSArray *results, NSError *error))completion;
+-(instancetype)initWithCountry:(TOTIPCountry *)country type:(TOTIPMediaType *)type feedType:(NSString *)feedTypeIdentifier genre:(NSString *)genreIdentifier limit:(NSUInteger)limit;
+-(void)performQueryWithCompletion:(void (^)(NSArray *results, NSError *error))completion;
 @end
