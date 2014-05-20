@@ -26,14 +26,18 @@
     
     // build initial root view controller
     NSMutableDictionary *countriesKeyValueMap = [NSMutableDictionary dictionaryWithCapacity:[countries count]];
-    for (TOTIPCountry *country in countries)
-        [countriesKeyValueMap setObject:country.countryCode forKey:[localizationMap valueForKeyPath:country.translationKey]];
+    for (TOTIPCountry *country in countries) {
+        if (!country.translationKey) continue;
+        id key = [localizationMap valueForKeyPath:[NSString stringWithFormat:@"common.feed_country.%@", country.translationKey]];
+        if (!key) continue;
+        [countriesKeyValueMap setObject:country.countryCode forKey:key];
+    }
     
     TOTIPOptionsViewController *countryOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:countriesKeyValueMap];
     
     if ((self = [super initWithRootViewController:countryOption])) {
         self.countryOption = countryOption;
-        self.countryOption.title = [localizationMap objectForKey:@"Country"];
+        self.countryOption.title = [localizationMap valueForKeyPath:@"common.Country"];
         self.countryOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeButtonTapped)];
         self.countryOption.delegate = self;
 
@@ -64,12 +68,16 @@
         // setup next option
         NSArray *enabledMediaTypes = [self.mediaTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"store IN %@", self.selectedCountry.stores]];
         NSMutableDictionary *mediaTypesKeyValueMap = [NSMutableDictionary dictionaryWithCapacity:[enabledMediaTypes count]];
-        for (TOTIPMediaType *mediaType in enabledMediaTypes)
-            [mediaTypesKeyValueMap setObject:mediaType.identifier forKey:[self.localizationMap objectForKey:mediaType.translationKey]];
+        for (TOTIPMediaType *mediaType in enabledMediaTypes) {
+            if (!mediaType.translationKey) continue;
+            id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", mediaType.translationKey]];
+            if (!key) continue;
+            [mediaTypesKeyValueMap setObject:mediaType.identifier forKey:key];
+        }
 
         self.mediaTypeOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:mediaTypesKeyValueMap];
         self.mediaTypeOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-        self.mediaTypeOption.title = [self.localizationMap objectForKey:@"Media_Type"];
+        self.mediaTypeOption.title = [self.localizationMap valueForKeyPath:@"common.Media_Type"];
         self.mediaTypeOption.delegate = self;
         
         [self pushViewController:self.mediaTypeOption animated:YES];
@@ -79,12 +87,15 @@
         _selectedMediaType = [[self.mediaTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", value]] lastObject];
         
         NSMutableDictionary *availableFeedTypes = [NSMutableDictionary dictionaryWithCapacity:[self.selectedMediaType.feedTypesURL count]];
-        for (NSString *translationKey in self.selectedMediaType.feedTypesURL)
-            [availableFeedTypes setObject:translationKey forKey:[self.localizationMap objectForKey:translationKey]];
+        for (NSString *translationKey in self.selectedMediaType.feedTypesURL) {
+            id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", translationKey]];
+            if (!key) continue;
+            [availableFeedTypes setObject:translationKey forKey:key];
+        }
         
         self.feedTypeOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:availableFeedTypes];
         self.feedTypeOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-        self.feedTypeOption.title = [self.localizationMap objectForKey:@"Feed_Type"];
+        self.feedTypeOption.title = [self.localizationMap valueForKeyPath:@"common.Feed_Type"];
         self.feedTypeOption.delegate = self;
         
         [self pushViewController:self.feedTypeOption animated:YES];
@@ -93,24 +104,27 @@
     if (optionsViewController == self.feedTypeOption) {
         _selectedFeedType = value;
         
-        self.limitOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:@{@"10": @"10", @"25": @"25", @"50": @"50", @"100": @"100", @"300": @"300"}];
+        self.limitOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:@{@(10): @"10", @(25): @"25", @(50): @"50", @(100): @"100", @(300): @"300"}];
         self.limitOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-        self.limitOption.title = [self.localizationMap objectForKey:@"Size"];
+        self.limitOption.title = [self.localizationMap valueForKey:@"common.Size"];
         self.limitOption.delegate = self;
         
         [self pushViewController:self.limitOption animated:YES];
     }
     
     if (optionsViewController == self.limitOption) {
-        _selectedLimit = [value unsignedIntegerValue];
+        _selectedLimit = [value integerValue];
         
         NSMutableDictionary *availableGenres = [NSMutableDictionary dictionaryWithCapacity:[self.selectedMediaType.genres count]];
-        for (NSString *translationKey in self.selectedMediaType.genres)
-            [availableGenres setObject:[self.selectedMediaType.genres objectForKey:translationKey] forKey:[self.localizationMap objectForKey:translationKey]];
+        for (NSString *translationKey in self.selectedMediaType.genres) {
+            id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", translationKey]];
+            if (!key) continue;
+            [availableGenres setObject:[self.selectedMediaType.genres objectForKey:translationKey] forKey:key];
+        }
         
         self.genreOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:availableGenres];
         self.genreOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-        self.genreOption.title = [self.localizationMap objectForKey:@"Genre"];
+        self.genreOption.title = [self.localizationMap valueForKeyPath:@"common.Genre"];
         self.genreOption.delegate = self;
         
         [self pushViewController:self.genreOption animated:YES];
@@ -123,7 +137,7 @@
         if (self.selectedMediaType.canBeExplicit) {
             self.explicitOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:@{@"Yes": @(YES), @"No": @(NO)}];
             self.explicitOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-            self.explicitOption.title = [self.localizationMap objectForKey:@"Explicit_Content"];
+            self.explicitOption.title = [self.localizationMap valueForKeyPath:@"media-types.Explicit_Content"];
             self.explicitOption.delegate = self;
             
             [self pushViewController:self.explicitOption animated:YES];
@@ -150,17 +164,17 @@
 }
 
 -(void)showOptionsSummary {
-    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:@{[self.localizationMap objectForKey:@"Country"]: [self.localizationMap objectForKey:self.selectedCountry.translationKey],
-                                                                                   [self.localizationMap objectForKey:@"Media_Type"]: [self.localizationMap objectForKey:self.selectedMediaType.translationKey],
-                                                                                   [self.localizationMap objectForKey:@"Feed_Type"]: [self.localizationMap objectForKey:self.selectedFeedType],
-                                                                                   [self.localizationMap objectForKey:@"Size"]: [NSString stringWithFormat:@"%d", self.selectedLimit]}];
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:@{[self.localizationMap valueForKeyPath:@"common.Country"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"common.feed_country.%@", self.selectedCountry.translationKey]],
+                                                                                   [self.localizationMap valueForKeyPath:@"common.Media_Type"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedMediaType.translationKey]],
+                                                                                   [self.localizationMap valueForKeyPath:@"common.Feed_Type"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedFeedType]],
+                                                                                   [self.localizationMap valueForKeyPath:@"common.Size"]: [NSString stringWithFormat:@"%d", self.selectedLimit]}];
     
     NSString *genreTranslationKey = [[self.selectedMediaType.genres allKeysForObject:self.selectedGenre] lastObject];
     if (genreTranslationKey)
-        [options setObject:[self.localizationMap objectForKey:genreTranslationKey] forKey:[self.localizationMap objectForKey:@"Genre"]];
+        [options setObject:[self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", genreTranslationKey]] forKey:[self.localizationMap valueForKeyPath:@"common.Genre"]];
     
     if (self.selectedMediaType.canBeExplicit)
-        [options setObject:[self.localizationMap objectForKey:(self.selectedExplicit) ? @"Yes" : @"No"] forKey:[self.localizationMap objectForKey:@"Explicit_Content"]];
+        [options setObject:[self.localizationMap valueForKeyPath:(self.selectedExplicit) ? @"common.Yes" : @"common.No"] forKey:[self.localizationMap valueForKeyPath:@"media-types.Explicit_Content"]];
     
     TOTIPOptionsSummaryViewController *optionsSummary = [[TOTIPOptionsSummaryViewController alloc] initWithTitle:@"Query Option Summary" optionsSummary:options];
     optionsSummary.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
