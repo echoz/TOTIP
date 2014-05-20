@@ -10,6 +10,7 @@
 
 @interface TOTIPOptionsViewController ()
 @property (nonatomic, strong) NSArray *keys;
+@property (nonatomic, copy) NSIndexPath *selectedIndexPath;
 @end
 
 @implementation TOTIPOptionsViewController
@@ -65,9 +66,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.accessoryType = ((self.selectedIndexPath) && ([indexPath isEqual:self.selectedIndexPath])) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     if (indexPath.section == 0) {
-        NSString *key = [self.keys objectAtIndex:indexPath.row];
-        cell.textLabel.text = key;
+        id key = [self.keys objectAtIndex:indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", key];
     }
 }
 
@@ -75,6 +77,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
+        self.selectedIndexPath = indexPath;
+        
+        for (UITableViewCell *visibleCell in self.tableView.visibleCells)
+            visibleCell.accessoryType = UITableViewCellAccessoryNone;
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
         if (![self.delegate respondsToSelector:@selector(optionsViewController:didSelectKey:value:)]) return;
         
         NSString *key = [self.keys objectAtIndex:indexPath.row];
