@@ -44,6 +44,7 @@
 		3FDA00B9192AFEC00009D882 /* TOTIPQueryBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */; };
 		3FDA00BC192B0D860009D882 /* TOTIPOptionsSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00BB192B0D860009D882 /* TOTIPOptionsSummaryViewController.m */; };
 		3FDA00C0192B1C100009D882 /* TOTIPListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00BF192B1C100009D882 /* TOTIPListViewController.m */; };
+		3FDA00C4192B2C1F0009D882 /* TOTIPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00C3192B2C1F0009D882 /* TOTIPDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,8 @@
 		3FDA00BB192B0D860009D882 /* TOTIPOptionsSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPOptionsSummaryViewController.m; sourceTree = "<group>"; };
 		3FDA00BE192B1C100009D882 /* TOTIPListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPListViewController.h; sourceTree = "<group>"; };
 		3FDA00BF192B1C100009D882 /* TOTIPListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPListViewController.m; sourceTree = "<group>"; };
+		3FDA00C2192B2C1F0009D882 /* TOTIPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPDetailViewController.h; sourceTree = "<group>"; };
+		3FDA00C3192B2C1F0009D882 /* TOTIPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,7 @@
 		3FA9808D1929719000795CB9 = {
 			isa = PBXGroup;
 			children = (
+				3FDA00C1192B2BFA0009D882 /* Entry Detail */,
 				3FDA00BD192B1BD80009D882 /* Entries List */,
 				3F3F4111192AB00D0028449E /* Query Builder */,
 				3FA981111929754D00795CB9 /* Classes */,
@@ -297,6 +301,15 @@
 			path = "Entries List";
 			sourceTree = "<group>";
 		};
+		3FDA00C1192B2BFA0009D882 /* Entry Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3FDA00C2192B2C1F0009D882 /* TOTIPDetailViewController.h */,
+				3FDA00C3192B2C1F0009D882 /* TOTIPDetailViewController.m */,
+			);
+			path = "Entry Detail";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FA980F5192973F100795CB9 /* AFURLRequestSerialization.m in Sources */,
+				3FDA00C4192B2C1F0009D882 /* TOTIPDetailViewController.m in Sources */,
 				3FA980F4192973F100795CB9 /* AFURLConnectionOperation.m in Sources */,
 				3FA980FA192973F100795CB9 /* UIAlertView+AFNetworking.m in Sources */,
 				3FA980F3192973F100795CB9 /* AFSecurityPolicy.m in Sources */,
