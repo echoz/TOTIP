@@ -42,6 +42,7 @@
 		3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA981281929CFE900795CB9 /* TOTIPEntry.m */; };
 		3FDA00B6192AF91A0009D882 /* TOTIPOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */; };
 		3FDA00B9192AFEC00009D882 /* TOTIPQueryBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */; };
+		3FDA00BC192B0D860009D882 /* TOTIPOptionsSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA00BB192B0D860009D882 /* TOTIPOptionsSummaryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,8 @@
 		3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPOptionsViewController.m; sourceTree = "<group>"; };
 		3FDA00B7192AFEC00009D882 /* TOTIPQueryBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPQueryBuilderViewController.h; sourceTree = "<group>"; };
 		3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPQueryBuilderViewController.m; sourceTree = "<group>"; };
+		3FDA00BA192B0D860009D882 /* TOTIPOptionsSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPOptionsSummaryViewController.h; sourceTree = "<group>"; };
+		3FDA00BB192B0D860009D882 /* TOTIPOptionsSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPOptionsSummaryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 			children = (
 				3FDA00B4192AF91A0009D882 /* TOTIPOptionsViewController.h */,
 				3FDA00B5192AF91A0009D882 /* TOTIPOptionsViewController.m */,
+				3FDA00BA192B0D860009D882 /* TOTIPOptionsSummaryViewController.h */,
+				3FDA00BB192B0D860009D882 /* TOTIPOptionsSummaryViewController.m */,
 				3FDA00B7192AFEC00009D882 /* TOTIPQueryBuilderViewController.h */,
 				3FDA00B8192AFEC00009D882 /* TOTIPQueryBuilderViewController.m */,
 			);
@@ -358,6 +363,7 @@
 				3FA980FD192973F100795CB9 /* UIProgressView+AFNetworking.m in Sources */,
 				3FA980F1192973F100795CB9 /* AFHTTPSessionManager.m in Sources */,
 				3FA980F8192973F100795CB9 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				3FDA00BC192B0D860009D882 /* TOTIPOptionsSummaryViewController.m in Sources */,
 				3FA980F0192973F100795CB9 /* AFHTTPRequestOperationManager.m in Sources */,
 				3FA980FC192973F100795CB9 /* UIImageView+AFNetworking.m in Sources */,
 				3FA980FB192973F100795CB9 /* UIButton+AFNetworking.m in Sources */,
