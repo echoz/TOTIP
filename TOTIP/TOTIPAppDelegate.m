@@ -7,7 +7,7 @@
 //
 
 #import "TOTIPAppDelegate.h"
-#import "TOTIPQueryController.h"
+#import "TOTIPListViewController.h"
 
 @implementation TOTIPAppDelegate
 
@@ -15,16 +15,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TOTIPListViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    [TOPTIPCountry updateAvailableCountriesWithCompletion:^(NSArray *countries, NSError *error) {
-        [TOPTIPMediaType updateAvailableMediaTypesWithCompletion:^(NSArray *mediaTypes, NSError *error) {
-            TOTIPQueryController *controller = [[TOTIPQueryController alloc] initWithCountry:[countries objectAtIndex:140] type:[mediaTypes objectAtIndex:0]];
-            [controller performQueryForFeedType:[[[[mediaTypes objectAtIndex:0] feedTypesURL] allKeys] objectAtIndex:0] genre:[[[[mediaTypes objectAtIndex:0] genres] allKeys] objectAtIndex:0] limit:10 completion:NULL];
-        }];
-    }];
-    
+        
     return YES;
 }
 
