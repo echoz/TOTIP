@@ -12,7 +12,7 @@
 
 @class TOTIPQueryBuilderViewController;
 
-@protocol TOTIPQueryBuilderViewControllerDelegate <NSObject>
+@protocol TOTIPQueryBuilderViewControllerDelegate <UINavigationControllerDelegate>
 @required
 -(void)didCompleteQueryBuilder:(TOTIPQueryBuilderViewController *)controller;
 @end
