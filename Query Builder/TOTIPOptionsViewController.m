@@ -17,7 +17,7 @@
 -(instancetype)initWithKeyValueMap:(NSDictionary *)keyValue {
     if ((self = [super initWithNibName:nil bundle:nil])) {
         _keyValueMap = keyValue;
-        _keys = [_keyValueMap allKeys];
+        _keys = [[_keyValueMap allKeys] sortedArrayUsingSelector:@selector(compare:)];
     }
     return self;
 }
@@ -70,6 +70,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == 0) {
         if (![self.delegate respondsToSelector:@selector(optionsViewController:didSelectKey:value:)]) return;
         

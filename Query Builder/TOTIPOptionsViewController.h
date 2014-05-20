@@ -11,6 +11,7 @@
 @class TOTIPOptionsViewController;
 
 @protocol TOTIPOptionsViewControllerDelegate <NSObject>
+@required
 -(void)optionsViewController:(TOTIPOptionsViewController *)optionsViewController didSelectKey:(id<NSCopying>)key value:(id)value;
 @end
 
