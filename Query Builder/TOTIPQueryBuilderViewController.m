@@ -106,7 +106,7 @@
         
         self.limitOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:@{@(10): @"10", @(25): @"25", @(50): @"50", @(100): @"100", @(300): @"300"}];
         self.limitOption.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
-        self.limitOption.title = [self.localizationMap valueForKey:@"common.Size"];
+        self.limitOption.title = [self.localizationMap valueForKeyPath:@"common.Size"];
         self.limitOption.delegate = self;
         
         [self pushViewController:self.limitOption animated:YES];
@@ -176,7 +176,7 @@
     if (self.selectedMediaType.canBeExplicit)
         [options setObject:[self.localizationMap valueForKeyPath:(self.selectedExplicit) ? @"common.Yes" : @"common.No"] forKey:[self.localizationMap valueForKeyPath:@"media-types.Explicit_Content"]];
     
-    TOTIPOptionsSummaryViewController *optionsSummary = [[TOTIPOptionsSummaryViewController alloc] initWithTitle:@"Query Option Summary" optionsSummary:options];
+    TOTIPOptionsSummaryViewController *optionsSummary = [[TOTIPOptionsSummaryViewController alloc] initWithTitle:@"Options Summary" optionsSummary:options];
     optionsSummary.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(resetButtonTapped)];
     optionsSummary.delegate = self;
     
