@@ -10,4 +10,11 @@
 
 @interface TOTIPEntryCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, assign) UIEdgeInsets contentInset;
+
+@property (nonatomic, weak, readonly) UILabel *titleLabel;
+@property (nonatomic, weak, readonly) UILabel *detailLabel;
+
+@property (nonatomic, strong) UIView *titleBackgroundView;
+
 @end

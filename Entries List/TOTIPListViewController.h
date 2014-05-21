@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TOTIPQuery.h"
 
-@interface TOTIPListViewController : UIViewController
+@interface TOTIPListViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak, readonly) UICollectionView *collectionView;
 @property (nonatomic, copy, readonly) NSDictionary *localizationMap;
