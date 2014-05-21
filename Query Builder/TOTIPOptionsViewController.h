@@ -21,7 +21,10 @@
 @property (nonatomic, copy) NSString *sectionTitle;
 @property (nonatomic, copy) NSString *helpText;
 
+@property (nonatomic, copy) NSIndexPath *initialIndexPath;
+
 @property (nonatomic, weak, readonly) UITableView *tableView;
+@property (nonatomic, strong, readonly) NSArray *keys;
 @property (nonatomic, copy, readonly) NSDictionary *keyValueMap;
 
 -(instancetype)initWithKeyValueMap:(NSDictionary *)keyValue;

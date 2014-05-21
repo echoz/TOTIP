@@ -9,7 +9,6 @@
 #import "TOTIPOptionsViewController.h"
 
 @interface TOTIPOptionsViewController ()
-@property (nonatomic, strong) NSArray *keys;
 @property (nonatomic, copy) NSIndexPath *selectedIndexPath;
 @end
 
@@ -33,6 +32,13 @@
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     _tableView = tableView;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.initialIndexPath)
+        [self.tableView scrollToRowAtIndexPath:self.initialIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:animated];
 }
 
 #pragma mark - UITableView
