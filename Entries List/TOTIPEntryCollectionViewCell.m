@@ -50,13 +50,13 @@
     [super layoutSubviews];
     
     if (self.titleBackgroundView.superview != self.contentView) [self.contentView insertSubview:self.titleBackgroundView atIndex:0];
-    self.titleBackgroundView.frame = CGRectMake(0, self.contentInset.top - self.contentInset.bottom, self.bounds.size.width, self.bounds.size.height - self.contentInset.top + self.contentInset.bottom);
+    self.titleBackgroundView.frame = CGRectMake(0, (self.bounds.size.height * 0.75f) - self.contentInset.top, self.bounds.size.width, self.bounds.size.height - ((self.bounds.size.height * 0.75f) - self.contentInset.top));
     
     [self.titleLabel sizeToFit];
     [self.detailLabel sizeToFit];
     
     self.titleLabel.frame = CGRectMake(self.contentInset.left,
-                                       self.contentInset.top + self.contentInset.bottom,
+                                       CGRectGetMinY(self.titleBackgroundView.frame) + self.contentInset.top,
                                        self.bounds.size.width - self.contentInset.left - self.contentInset.right,
                                        self.titleLabel.bounds.size.height);
     

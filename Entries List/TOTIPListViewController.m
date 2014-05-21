@@ -183,7 +183,7 @@
     cell.titleLabel.text = entry.name;
     cell.detailLabel.text = ([entry.artist length] > 0) ? entry.artist : entry.publisher;
     
-    cell.contentInset = UIEdgeInsetsMake(self.flowLayout.itemSize.height * 0.7f, 10.0f, 5.0f, 10.0f);
+    cell.contentInset = UIEdgeInsetsMake(5.0f, 10.0f, 5.0f, 10.0f);
     
     return cell;
 }
