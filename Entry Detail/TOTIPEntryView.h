@@ -18,4 +18,7 @@
 @property (nonatomic, weak, readonly) UILabel *summaryLabel;
 @property (nonatomic, weak, readonly) UILabel *categoryLabel;
 
+@property (nonatomic, weak, readonly) UILabel *releaseDateLabel;
+@property (nonatomic, weak, readonly) UILabel *copyrightLabel;
+
 @end
