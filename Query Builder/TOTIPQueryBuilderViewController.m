@@ -77,8 +77,7 @@
         for (TOTIPMediaType *mediaType in enabledMediaTypes) {
             if (!mediaType.translationKey) continue;
             id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", mediaType.translationKey]];
-            if (!key) continue;
-            [mediaTypesKeyValueMap setObject:mediaType.identifier forKey:key];
+            [mediaTypesKeyValueMap setObject:mediaType.identifier forKey:(key) ? key : mediaType.translationKey];
         }
 
         self.mediaTypeOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:mediaTypesKeyValueMap];
@@ -95,8 +94,7 @@
         NSMutableDictionary *availableFeedTypes = [NSMutableDictionary dictionaryWithCapacity:[self.selectedMediaType.feedTypesURL count]];
         for (NSString *translationKey in self.selectedMediaType.feedTypesURL) {
             id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", translationKey]];
-            if (!key) continue;
-            [availableFeedTypes setObject:translationKey forKey:key];
+            [availableFeedTypes setObject:translationKey forKey:(key) ? key : translationKey];
         }
         
         self.feedTypeOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:availableFeedTypes];
@@ -124,8 +122,7 @@
         NSMutableDictionary *availableGenres = [NSMutableDictionary dictionaryWithCapacity:[self.selectedMediaType.genres count]];
         for (NSString *translationKey in self.selectedMediaType.genres) {
             id key = [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", translationKey]];
-            if (!key) continue;
-            [availableGenres setObject:[self.selectedMediaType.genres objectForKey:translationKey] forKey:key];
+            [availableGenres setObject:[self.selectedMediaType.genres objectForKey:translationKey] forKey:(key) ? key : translationKey];
         }
         
         self.genreOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:availableGenres];
@@ -170,14 +167,15 @@
 }
 
 -(void)showOptionsSummary {
-    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:@{[self.localizationMap valueForKeyPath:@"common.Country"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"common.feed_country.%@", self.selectedCountry.translationKey]],
-                                                                                   [self.localizationMap valueForKeyPath:@"common.Media_Type"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedMediaType.translationKey]],
-                                                                                   [self.localizationMap valueForKeyPath:@"common.Feed_Type"]: [self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedFeedType]],
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithDictionary:@{[self.localizationMap valueForKeyPath:@"common.Country"]: ([self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"common.feed_country.%@", self.selectedCountry.translationKey]]) ?: self.selectedCountry.translationKey,
+                                                                                   [self.localizationMap valueForKeyPath:@"common.Media_Type"]: ([self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedMediaType.translationKey]]) ?: self.selectedMediaType.translationKey,
+                                                                                   [self.localizationMap valueForKeyPath:@"common.Feed_Type"]: ([self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", self.selectedFeedType]]) ?: self.selectedFeedType,
                                                                                    [self.localizationMap valueForKeyPath:@"common.Size"]: [NSString stringWithFormat:@"%d", self.selectedLimit]}];
     
     NSString *genreTranslationKey = [[self.selectedMediaType.genres allKeysForObject:self.selectedGenre] lastObject];
     if (genreTranslationKey)
-        [options setObject:[self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", genreTranslationKey]] forKey:[self.localizationMap valueForKeyPath:@"common.Genre"]];
+        [options setObject:([self.localizationMap valueForKeyPath:[NSString stringWithFormat:@"media-types.%@", genreTranslationKey]]) ?: genreTranslationKey
+                    forKey:[self.localizationMap valueForKeyPath:@"common.Genre"]];
     
     if (self.selectedMediaType.canBeExplicit)
         [options setObject:[self.localizationMap valueForKeyPath:(self.selectedExplicit) ? @"common.Yes" : @"common.No"] forKey:[self.localizationMap valueForKeyPath:@"media-types.Explicit_Content"]];
