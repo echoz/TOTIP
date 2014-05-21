@@ -57,8 +57,8 @@
 +(NSDictionary *)mappedProperties {
     return @{@"id.attributes.im:id": @"identifier",
              @"im:name.label": @"name",
-             @"title": @"title",
-             @"summary": @"summary",
+             @"title.label": @"title",
+             @"summary.label": @"summary",
              @"category.attributes.term": @"category",
              @"category.attributes.im:id": @"categoryID",
              @"im:price.attributes.currency": @"currency",
