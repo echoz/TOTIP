@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TOTIPEntry.h"
 
 @interface TOTIPDetailViewController : UIViewController
+
+@property (nonatomic, readonly, strong) TOTIPEntry *entry;
+
+-(instancetype)initWithEntry:(TOTIPEntry *)entry;
 
 @end
