@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F957C20192C64F80074402D /* TOTIPEntryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F957C1F192C64F80074402D /* TOTIPEntryCollectionViewCell.m */; };
+		3F957C23192C83F10074402D /* TOTIPEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F957C22192C83F10074402D /* TOTIPEntryView.m */; };
 		3FA9809A1929719000795CB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA980991929719000795CB9 /* Foundation.framework */; };
 		3FA9809C1929719000795CB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809B1929719000795CB9 /* CoreGraphics.framework */; };
 		3FA9809E1929719000795CB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA9809D1929719000795CB9 /* UIKit.framework */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		3F957C1E192C64F80074402D /* TOTIPEntryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPEntryCollectionViewCell.h; sourceTree = "<group>"; };
 		3F957C1F192C64F80074402D /* TOTIPEntryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPEntryCollectionViewCell.m; sourceTree = "<group>"; };
+		3F957C21192C83F10074402D /* TOTIPEntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTIPEntryView.h; sourceTree = "<group>"; };
+		3F957C22192C83F10074402D /* TOTIPEntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTIPEntryView.m; sourceTree = "<group>"; };
 		3FA980961929719000795CB9 /* TOTIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOTIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA980991929719000795CB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FA9809B1929719000795CB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -311,6 +314,8 @@
 			children = (
 				3FDA00C2192B2C1F0009D882 /* TOTIPDetailViewController.h */,
 				3FDA00C3192B2C1F0009D882 /* TOTIPDetailViewController.m */,
+				3F957C21192C83F10074402D /* TOTIPEntryView.h */,
+				3F957C22192C83F10074402D /* TOTIPEntryView.m */,
 			);
 			path = "Entry Detail";
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				3F957C20192C64F80074402D /* TOTIPEntryCollectionViewCell.m in Sources */,
 				3FA980FB192973F100795CB9 /* UIButton+AFNetworking.m in Sources */,
 				3FA980FE192973F100795CB9 /* UIRefreshControl+AFNetworking.m in Sources */,
+				3F957C23192C83F10074402D /* TOTIPEntryView.m in Sources */,
 				3FA980FF192973F100795CB9 /* UIWebView+AFNetworking.m in Sources */,
 				3FA9811D192989F500795CB9 /* TOTIPJSONMappedObject.m in Sources */,
 				3FA981291929CFE900795CB9 /* TOTIPEntry.m in Sources */,
