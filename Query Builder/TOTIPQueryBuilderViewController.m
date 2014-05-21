@@ -35,6 +35,12 @@
     
     TOTIPOptionsViewController *countryOption = [[TOTIPOptionsViewController alloc] initWithKeyValueMap:countriesKeyValueMap];
     
+    NSString *countryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+    NSString *localizedCountryCodeKey = [localizationMap valueForKeyPath:[NSString stringWithFormat:@"common.feed_country.%@", [countryCode lowercaseString]]];
+
+    NSUInteger countryIndex = [countryOption.keys indexOfObject:localizedCountryCodeKey];
+    countryOption.initialIndexPath = (countryIndex == NSNotFound) ? nil : [NSIndexPath indexPathForRow:countryIndex inSection:0];
+    
     if ((self = [super initWithRootViewController:countryOption])) {
         self.countryOption = countryOption;
         self.countryOption.title = [localizationMap valueForKeyPath:@"common.Country"];
