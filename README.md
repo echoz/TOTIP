@@ -1,6 +1,6 @@
 # TOTIP: Top of the iTunes Pop
 
-TOTIP is an iOS 7 application that builds queries for RSS feeds based on parameters fetched from http://rss.itunes.apple.com and displays the content in an easy to navigate layout. It is basically a native implementation of the web app.
+TOTIP is an iOS 7 application that builds queries for RSS feeds based on parameters fetched from http://rss.itunes.apple.com and displays the content in an easy to navigate layout. It is basically a native implementation of the web app but with the capability to display the content as a sort of "reader".
 
 It is able to fetch, based on the current device locales, localized content to display making use of the localization work already done at http://rss.itunes.apple.com.
 
