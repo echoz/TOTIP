@@ -71,8 +71,10 @@
         cell.detailTextLabel.text = [self.optionsSummaryMap objectForKey:[self.keys objectAtIndex:indexPath.row]];
     }
     
-    if (indexPath.section == 1)
+    if (indexPath.section == 1) {
         cell.textLabel.text = (indexPath.row == 0) ? @"Confirm" : @"Cancel";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
