@@ -59,7 +59,7 @@
     self.title = @"TOTIP";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(queryBuilderTapped)];
     self.navigationItem.leftBarButtonItem.enabled = NO;
-    
+
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1.000];
     [self.collectionView registerClass:[TOTIPEntryCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([TOTIPEntryCollectionViewCell class])];
     
@@ -122,6 +122,11 @@
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+}
+
 -(void)queryBuilderTapped {
     TOTIPQueryBuilderViewController *queryBuilder = [[TOTIPQueryBuilderViewController alloc] initWithCountries:[TOTIPCountry availableCountries] mediaTypes:[TOTIPMediaType availableMediaTypes] localizationMap:self.localizationMap];
     queryBuilder.delegate = self;
@@ -180,7 +185,7 @@
 
     cell.backgroundView = entryImageView;
     
-    cell.titleLabel.text = entry.title;
+    cell.titleLabel.text = entry.name;
     cell.detailLabel.text = ([entry.artist length] > 0) ? entry.artist : entry.publisher;
     
     cell.contentInset = UIEdgeInsetsMake(self.flowLayout.itemSize.height * 0.7f, 10.0f, 5.0f, 10.0f);
