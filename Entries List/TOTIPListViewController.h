@@ -11,6 +11,7 @@
 
 @interface TOTIPListViewController : UIViewController
 
+@property (nonatomic, weak, readonly) UICollectionView *collectionView;
 @property (nonatomic, copy, readonly) NSDictionary *localizationMap;
 @property (nonatomic, strong) TOTIPQuery *currentQuery;
 
