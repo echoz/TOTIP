@@ -82,14 +82,14 @@
     _releaseDate = [[[self class] utcDateStringFormatter] dateFromString:[json valueForKeyPath:@"im:releaseDate.label"]];
     
     NSMutableDictionary *imageDictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-    for (NSDictionary *imageDict in [json valueForKey:@"im:image"]) {
+    for (NSDictionary *imageDict in [json valueForKeyPath:@"im:image"]) {
         NSString *height = [imageDict valueForKeyPath:@"attributes.height"];
         if (!height) continue;
         
-        NSURL *imageURL = [NSURL URLWithString:[json valueForKeyPath:@"label"]];
+        NSURL *imageURL = [NSURL URLWithString:[imageDict valueForKeyPath:@"label"]];
         if (!imageURL) continue;
         
-        [imageDictionary setObject:imageURL forKey:height];
+        [imageDictionary setObject:imageURL forKey:@([height doubleValue])];
     }
     
     _images = imageDictionary;
