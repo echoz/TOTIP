@@ -176,14 +176,9 @@
     
     TOTIPEntryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TOTIPEntryCollectionViewCell class])
                                                                                    forIndexPath:indexPath];
-    UIImageView *entryImageView = [[UIImageView alloc] initWithFrame:(CGRect){CGPointZero, self.flowLayout.itemSize}];
-    entryImageView.contentMode = UIViewContentModeScaleAspectFill;
-    entryImageView.clipsToBounds = YES;
     
     id bestImageKey = [[[entry.images allKeys] sortedArrayUsingSelector:@selector(compare:)] lastObject];
-    [entryImageView setImageWithURL:[entry.images objectForKey:bestImageKey]];
-
-    cell.backgroundView = entryImageView;
+    [cell.imageView setImageWithURL:[entry.images objectForKey:bestImageKey]];
     
     cell.titleLabel.text = entry.name;
     cell.detailLabel.text = ([entry.artist length] > 0) ? entry.artist : entry.publisher;

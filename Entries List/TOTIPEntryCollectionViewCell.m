@@ -31,6 +31,12 @@
         detailLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.000];
         [self.contentView addSubview:detailLabel];
         _detailLabel = detailLabel;
+        
+        UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:(CGRect){CGPointZero, frame.size}];
+        backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+        backgroundView.clipsToBounds = YES;
+        self.backgroundView = backgroundView;
+        _imageView = backgroundView;
     }
     return self;
 }

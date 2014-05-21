@@ -15,6 +15,7 @@
 @property (nonatomic, weak, readonly) UILabel *titleLabel;
 @property (nonatomic, weak, readonly) UILabel *detailLabel;
 
+@property (nonatomic, weak, readonly) UIImageView *imageView;
 @property (nonatomic, strong) UIView *titleBackgroundView;
 
 @end
