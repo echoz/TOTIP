@@ -1,4 +1,4 @@
-# TOTIP: Top of the iTunes Pop
+# TOTIP: Top of the iTunes Pops
 
 TOTIP is an iOS 7 application that builds queries for RSS feeds based on parameters fetched from http://rss.itunes.apple.com and displays the content in an easy to navigate layout. It is basically a native implementation of the web app but with the capability to display the content as a sort of "reader".
 
@@ -34,3 +34,4 @@ Finally building the display for data was just an exercise of aesthetic design. 
 - It would be real nice to be able to search the results
 - Some amount of caching so we don't have to fetch all the damn time from the server
 - Tighter integration with the App/iTunes Store for content
+- Preview entries that have associated previews (Music, Movies, etc.)
